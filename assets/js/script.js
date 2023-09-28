@@ -21,6 +21,7 @@ function runGame(gameMode) {
 
     if (gameMode === 'easy') {
         displayEasyQuestion();
+
     } else {
         alert(`unknown gameMode ${gameMode}`);
         throw `unknown gameMode ${gameMode}. Abort mission!`;
@@ -63,11 +64,27 @@ function displayEasyQuestion() {
         let answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1;
         let answer2 = fruit1 * fruit1Multiple2 - fruit2 * fruit2Multiple2;
 
-        let easyHtml = document.getElementsByClassName('question-area')[0];
-        easyHtml.innerHTML =
+        let easyQuestion = document.getElementsByClassName('question-area')[0];
+        easyQuestion.innerHTML =
             `<div><span>(${fruit1} x ${fruit1Multiple1}) </span> + <span>(${fruit2} x ${fruit2Multiple1})</span> = <span>${answer1}</span></div>
         <div><span>(${fruit1} x ${fruit1Multiple2}) </span> - <span>(${fruit2} x ${fruit2Multiple2})</span> = <span>${answer2}</span></div>`;
     }
+    displayEasyAnswer();
+}
+
+function displayEasyAnswer() {
+    let easyAnswer = document.getElementsByClassName('answer-area')[0];
+    easyAnswer.innerHTML =
+        `<div>
+        Fruit1 = 
+        <input id='guess1' type='number' />
+        </div>
+        <div>
+        Fruit2 = 
+        <input id='guess1' type='number' />
+        <div>
+        <button data-type="submit">Submit</button>
+        </div>`;
 }
 
 function displayMediumQuestion() {
@@ -77,3 +94,4 @@ function displayMediumQuestion() {
 function displayHardQuestion() {
 
 };;
+
