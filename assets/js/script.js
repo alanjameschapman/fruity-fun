@@ -16,18 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     runGame('easy');
 });
-/**
- * Creates 4 random integers between 1 and 7 and assigns them to 4 fruits.
- * strawberry and pear will only be used in medium and Fruity! games respectively.
- */
+
 function runGame(gameMode) {
-    let banana = Math.floor(Math.random() * 7) + 1;
-    let orange = Math.floor(Math.random() * 7) + 1;
-    let strawberry = Math.floor(Math.random() * 7) + 1;
-    let pear = Math.floor(Math.random() * 7) + 1;
 
     if (gameMode === 'easy') {
-        displayEasyQuestion(banana, orange);
+        displayEasyQuestion();
     } else {
         alert(`unknown gameMode ${gameMode}`);
         throw `unknown gameMode ${gameMode}. Abort mission!`;
@@ -49,19 +42,32 @@ function incrementCorrect() {
 function incrementIncorrect() {
 
 }
-
+/**
+ * Creates 2 random integers between 1 and 7 and assigns them to 2 fruits.
+ * Creates 4 random integers between 1 and 3 and assigns them to fruit multiplier.
+ * Edits question-area html with structure and variable for easy gameMode.
+ */
 function displayEasyQuestion() {
-    let banana = Math.floor(Math.random() * 7) + 1;
-    let orange = Math.floor(Math.random() * 7) + 1;
-    let bananaMultiple = Math.floor(Math.random() * 3) + 1;
-    let orangeMultiple = Math.floor(Math.random() * 3) + 1;
-    console.log(banana);
-    console.log(orange);
+    let fruit1 = Math.floor(Math.random() * 7) + 1;
+    let fruit2 = Math.floor(Math.random() * 7) + 1;
 
-    let easyHtml = document.getElementsByClassName('question-area')[0];
-    easyHtml.innerHTML = `<div><span>${bananaMultiple} </span> + <span>${orangeMultiple}</span> = <span>${banana * bananaMultiple + orange * orangeMultiple}</span></div>
-    <div><span>${bananaMultiple} </span> - <span>${orangeMultiple}</span> = <span>${banana * bananaMultiple - orange * orangeMultiple}</span></div>`;
+    let fruit1Multiple1 = Math.floor(Math.random() * 3) + 1;
+    let fruit2Multiple1 = Math.floor(Math.random() * 3) + 1;
+    let fruit1Multiple2 = Math.floor(Math.random() * 3) + 1;
+    let fruit2Multiple2 = Math.floor(Math.random() * 3) + 1;
 
+    // if answer2 is negative then regenerate random numbers until answer2 is positive
+    if ((fruit1 * fruit1Multiple2) <= (fruit2 * fruit2Multiple2)) {
+        displayEasyQuestion();
+    } else {
+        let answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1;
+        let answer2 = fruit1 * fruit1Multiple2 - fruit2 * fruit2Multiple2;
+
+        let easyHtml = document.getElementsByClassName('question-area')[0];
+        easyHtml.innerHTML =
+            `<div><span>(${fruit1} x ${fruit1Multiple1}) </span> + <span>(${fruit2} x ${fruit2Multiple1})</span> = <span>${answer1}</span></div>
+        <div><span>(${fruit1} x ${fruit1Multiple2}) </span> - <span>(${fruit2} x ${fruit2Multiple2})</span> = <span>${answer2}</span></div>`;
+    }
 }
 
 function displayMediumQuestion() {
