@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let button of buttons) {
         button.addEventListener('click', function () {
             if (this.getAttribute('data-type') === 'submit') {
-                alert('Submission!');
+                checkAnswers();
             } else {
                 let gameMode = this.getAttribute('data-type');
-                alert(`you clicked ${gameMode}`);
+                // alert(`you clicked ${gameMode}`);
                 runGame(gameMode);
             }
         });
@@ -28,11 +28,34 @@ function runGame(gameMode) {
     }
 }
 
-function calculateCorrectAnswer() {
-
-}
-
 function checkAnswers() {
+    let userGuess1 = parseInt(document.getElementById('guess1').value);
+    let userGuess2 = parseInt(document.getElementById('guess2').value);
+
+    let fruit1 = parseInt(document.getElementById('fruit1').innerText);
+    let fruit2 = parseInt(document.getElementById('fruit2').innerText);
+
+    let userAnswers = [userGuess1, userGuess2];
+    let correctAnswers = [fruit1, fruit2];
+    let isCorrect = true;
+
+    if (userAnswers.length !== correctAnswers.length) {
+        isCorrect = false;
+    } else {
+        // Loop through the arrays and compare each element
+        for (let i = 0; i < userAnswers.length; i++) {
+            if (userAnswers[i] !== correctAnswers[i]) {
+                isCorrect = false;
+                break; // Exit the loop if a mismatch is found
+            }
+        }
+    }
+
+    if (isCorrect) {
+        alert('Well done champ!');
+    } else {
+        alert('Sorry, try again pal');
+    }
 
 }
 
@@ -66,25 +89,40 @@ function displayEasyQuestion() {
 
         let easyQuestion = document.getElementsByClassName('question-area')[0];
         easyQuestion.innerHTML =
-            `<div><span>(${fruit1} x ${fruit1Multiple1}) </span> + <span>(${fruit2} x ${fruit2Multiple1})</span> = <span>${answer1}</span></div>
-        <div><span>(${fruit1} x ${fruit1Multiple2}) </span> - <span>(${fruit2} x ${fruit2Multiple2})</span> = <span>${answer2}</span></div>`;
+            `<div>
+            <span id='fruit1' type='number'>${fruit1}</span>
+            <span> x ${fruit1Multiple1} + </span>
+            <span id='fruit2' type='number'>${fruit2}</span>
+            <span> x ${fruit2Multiple1} = </span>
+            <span id='answer1'>${answer1}</span>
+            </div>
+
+            <div>
+            <span id='fruit1' type='number'>${fruit1}</span>
+            <span> x ${fruit1Multiple2} - </span>
+            <span id='fruit2' type='number'>${fruit2}</span>
+            <span> x ${fruit2Multiple2} = </span>
+            <span id='answer1'>${answer2}</span>
+            </div>`;
+
+        displayEasyAnswer();
+
     }
-    displayEasyAnswer();
+
 }
 
 function displayEasyAnswer() {
     let easyAnswer = document.getElementsByClassName('answer-area')[0];
     easyAnswer.innerHTML =
         `<div>
-        Fruit1 = 
-        <input id='guess1' type='number' />
+            Fruit1 = 
+            <input id='guess1' type='number' />
         </div>
         <div>
-        Fruit2 = 
-        <input id='guess1' type='number' />
-        <div>
-        <button data-type="submit">Submit</button>
-        </div>`;
+            Fruit2 = 
+            <input id='guess2' type='number' />`;
+
+    // return [fruit1, fruit2];
 }
 
 function displayMediumQuestion() {

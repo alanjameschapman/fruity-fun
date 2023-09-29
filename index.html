@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruity Fun</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
     <h1 class="heading">Fruity Fun</h1>
 
     <div class="instruction-area">Instructions (collapsable)</div>
 
-    <div class="mode-area"> <button data-type="easy">Easy</button> <button data-type="medium">Medium</button> <button data-type="Fruity">Fruity!</button> </div>
+    <div class="mode-area">
+      <button data-type="easy">Easy</button>
+      <button data-type="medium">Medium</button>
+      <button data-type="Fruity">Fruity!</button>
+    </div>
 
     <div class="question-area">Question Area</div>
 
-    <div class="answer-area">Answers Area with Submit button
+    <div class="answer-area">
+      Answers Area
+    </div>
 
+    <div>
+        <button data-type="submit">Submit</button>
     </div>
 
     <div class="score-area">
-        <p class="scores">Correct Answers <span id="correct">0</span></p>
-        <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
-
+      <p class="scores">Correct Answers <span id="correct">0</span></p>
+      <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
+    </div>
     <script src="assets/js/script.js"></script>
-</body>
+  </bod y>
 </html>
