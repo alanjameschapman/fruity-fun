@@ -28,44 +28,6 @@ function runGame(gameMode) {
     }
 }
 
-function checkAnswers() {
-    let userGuess1 = parseInt(document.getElementById('guess1').value);
-    let userGuess2 = parseInt(document.getElementById('guess2').value);
-
-    let fruit1 = parseInt(document.getElementById('fruit1').innerText);
-    let fruit2 = parseInt(document.getElementById('fruit2').innerText);
-
-    let userAnswers = [userGuess1, userGuess2];
-    let correctAnswers = [fruit1, fruit2];
-    let isCorrect = true;
-
-    if (userAnswers.length !== correctAnswers.length) {
-        isCorrect = false;
-    } else {
-        // Loop through the arrays and compare each element
-        for (let i = 0; i < userAnswers.length; i++) {
-            if (userAnswers[i] !== correctAnswers[i]) {
-                isCorrect = false;
-                break; // Exit the loop if a mismatch is found
-            }
-        }
-    }
-
-    if (isCorrect) {
-        alert('Well done champ!');
-    } else {
-        alert('Sorry, try again pal');
-    }
-
-}
-
-function incrementCorrect() {
-
-}
-
-function incrementIncorrect() {
-
-}
 /**
  * Creates 2 random integers between 1 and 7 and assigns them to 2 fruits.
  * Creates 4 random integers between 1 and 3 and assigns them to fruit multiplier.
@@ -121,8 +83,7 @@ function displayEasyAnswer() {
         <div>
             Fruit2 = 
             <input id='guess2' type='number' />`;
-
-    // return [fruit1, fruit2];
+            
 }
 
 function displayMediumQuestion() {
@@ -133,3 +94,47 @@ function displayHardQuestion() {
 
 };;
 
+function checkAnswers() {
+    let userGuess1 = parseInt(document.getElementById('guess1').value);
+    let userGuess2 = parseInt(document.getElementById('guess2').value);
+
+    let fruit1 = parseInt(document.getElementById('fruit1').innerText);
+    let fruit2 = parseInt(document.getElementById('fruit2').innerText);
+
+    let userAnswers = [userGuess1, userGuess2];
+    let correctAnswers = [fruit1, fruit2];
+    let isCorrect = true;
+
+    if (userAnswers.length !== correctAnswers.length) {
+        isCorrect = false;
+    } else {
+        // Loop through the arrays and compare each element
+        for (let i = 0; i < userAnswers.length; i++) {
+            if (userAnswers[i] !== correctAnswers[i]) {
+                isCorrect = false;
+                break; // Exit the loop if a mismatch is found
+            }
+        }
+    }
+
+    if (isCorrect) {
+        alert('Well done champ!');
+        incrementCorrect();
+        displayEasyQuestion();
+    } else {
+        alert('Sorry, try again pal');
+        incrementIncorrect();
+        displayEasyQuestion();
+    }
+
+}
+
+function incrementCorrect() {
+    let oldScore = parseInt(document.getElementById("correct").innerText);
+    document.getElementById("correct").innerText = ++oldScore;
+}
+
+function incrementIncorrect() {
+    let oldScore = parseInt(document.getElementById("incorrect").innerText);
+    document.getElementById("incorrect").innerText = ++oldScore;
+}
