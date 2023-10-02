@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    runGame('easy');
+    runGame('normal');
 });
 
 /**
- * Creates random integers between 1 and 7 and assigns them to fruits; 2, 3, and 4 created for easy, medium and Fruity respectively.
- * Creates random integers between 1 and 3 and assigns them to fruit multipliers. 2, 3, and 4 created for easy, medium and Fruity respectively.
+ * Creates random integers between 1 and 7 and assigns them to fruits; 2, 3, and 4 created for normal and Fruity respectively.
+ * Creates random integers between 1 and 3 and assigns them to fruit multipliers. 2, 3, and 4 created for normal and Fruity respectively.
  * If answer of equation is negative, numbers will regenerate until it's positive. Once numbers are suitable, displayQuestion functions will execute.
  */
 function runGame(gameMode) {
@@ -33,13 +33,13 @@ function runGame(gameMode) {
     let fruit1Multiple2 = Math.floor(Math.random() * 3) + 1;
     let fruit2Multiple2 = Math.floor(Math.random() * 3) + 1;
 
-    if (gameMode === 'easy') {
+    if (gameMode === 'normal') {
         // if answer2 is negative then regenerate random numbers until answer2 is positive
         let answer2 = ((fruit1 * fruit1Multiple2) - (fruit2 * fruit2Multiple2));
         if (Math.sign(answer2) === -1) {
             runGame(gameMode);
-        } else displayEasyQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2);
-    } else if (gameMode === 'medium') {
+        } else displayNormalQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2);
+    } else if (gameMode === 'fruity') {
         let fruit3 = Math.floor(Math.random() * 7) + 1;
         let fruit3Multiple1 = Math.floor(Math.random() * 3) + 1;
         let fruit3Multiple2 = Math.floor(Math.random() * 3) + 1;
@@ -48,11 +48,12 @@ function runGame(gameMode) {
         let fruit2Multiple3 = Math.floor(Math.random() * 3) + 1;
 
         // if answer3 is negative then regenerate random numbers until answer3 is positive
+        let answer2 = (fruit1 * fruit1Multiple2) + (fruit2 * fruit2Multiple2) - (fruit3 * fruit3Multiple2);
         let answer3 = (fruit1 * fruit1Multiple3) - (fruit2 * fruit2Multiple3) - (fruit3 * fruit3Multiple3);
-        if (Math.sign(answer3) === -1) {
+        if (Math.sign(answer2) === -1 || Math.sign(answer3) === -1) {
             runGame(gameMode);
         } else {
-            displayMediumQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, fruit3, fruit3Multiple1, fruit3Multiple2, fruit3Multiple3, fruit1Multiple3, fruit2Multiple3);
+            displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, fruit3, fruit3Multiple1, fruit3Multiple2, fruit3Multiple3, fruit1Multiple3, fruit2Multiple3);
         }
     } else {
         alert(`unknown gameMode ${gameMode}`);
@@ -61,9 +62,9 @@ function runGame(gameMode) {
 }
 
 /**
- * Updates question-area html using template literals with structure and variables for EASY gameMode. Fruit numbers will be hidden from the user, instead showing fruit icons.
+ * Updates question-area html using template literals with structure and variables for NORMAL gameMode. Fruit numbers will be hidden from the user, instead showing fruit icons.
  */
-function displayEasyQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, gameMode) {
+function displayNormalQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, gameMode) {
 
     let answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1;
     let answer2 = fruit1 * fruit1Multiple2 - fruit2 * fruit2Multiple2;
@@ -75,39 +76,35 @@ function displayEasyQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, f
         fruitEmoji2 = fruitEmoji();
     } while (fruitEmoji1 === fruitEmoji2);
 
-    let easyQuestion = document.getElementsByClassName('question-area')[0];
-    easyQuestion.innerHTML =
+    let NormalQuestion = document.getElementsByClassName('question-area')[0];
+    NormalQuestion.innerHTML =
 
         `<div>
-            <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
-            <span>${generateEmoji(fruitEmoji1, fruit1Multiple1)} + </span>
-            <span class='hidden'>${fruit1Multiple1}</span>
-            <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
-            <span>${generateEmoji(fruitEmoji2, fruit2Multiple1)} = </span>
-            <span class='hidden'> x ${fruit2Multiple1}</span>
-            <span id='answer1'>${answer1}</span>
-            </div>
+        <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
+        <span>${generateEmoji(fruitEmoji1, fruit1Multiple1)} + </span>
+        <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
+        <span>${generateEmoji(fruitEmoji2, fruit2Multiple1)} = </span>
+        <span id='answer1'>${answer1}</span>
+    </div>
 
-            <div>
-            <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
-            <span>${generateEmoji(fruitEmoji1, fruit1Multiple2)} - </span>
-            <span class='hidden'>${fruit1Multiple2}</span>
-            <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
-            <span>${generateEmoji(fruitEmoji2, fruit2Multiple2)} = </span>
-            <span class='hidden'>${fruit2Multiple2}</span>
-            <span id='answer1'>${answer2}</span>
-            </div>`;
+    <div>
+        <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
+        <span>${generateEmoji(fruitEmoji1, fruit1Multiple2)} - </span>
+        <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
+        <span>${generateEmoji(fruitEmoji2, fruit2Multiple2)} = </span>
+        <span id='answer1'>${answer2}</span>
+    </div>`;
 
-    displayEasyAnswer(gameMode);
+    displayNormalAnswer(gameMode);
 }
 
 /**
- * Updates answer-area html using template literals with structure for EASY gameMode.
+ * Updates answer-area html using template literals with structure for NORMAL gameMode.
  */
-function displayEasyAnswer() {
-    let easyAnswer = document.getElementsByClassName('answer-area')[0];
-    easyAnswer.innerHTML =
-        `<div data-type='easy'>
+function displayNormalAnswer() {
+    let NormalAnswer = document.getElementsByClassName('answer-area')[0];
+    NormalAnswer.innerHTML =
+        `<div data-type='normal'>
             Fruit1 = 
             <input id='guess1' type='number' />
         </div>
@@ -119,57 +116,66 @@ function displayEasyAnswer() {
 }
 
 /**
- * Updates question-area html using template literals with structure and variables for MEDIUM gameMode. Fruit numbers will be hidden from the user, instead showing fruit icons.
+ * Updates question-area html using template literals with structure and variables for FRUITY gameMode. Fruit numbers will be hidden from the user, instead showing fruit icons.
  */
-function displayMediumQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, fruit3, fruit3Multiple1, fruit3Multiple2, fruit3Multiple3, fruit1Multiple3, fruit2Multiple3) {
+function displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, fruit3, fruit3Multiple1, fruit3Multiple2, fruit3Multiple3, fruit1Multiple3, fruit2Multiple3) {
 
     let answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1 + fruit3 * fruit3Multiple1;
     let answer2 = fruit1 * fruit1Multiple2 + fruit2 * fruit2Multiple2 - fruit3 * fruit3Multiple2;
     let answer3 = fruit1 * fruit1Multiple3 - fruit2 * fruit2Multiple3 - fruit3 * fruit3Multiple3;
 
-    let mediumQuestion = document.getElementsByClassName('question-area')[0];
-    mediumQuestion.innerHTML =
+    let fruitEmoji1, fruitEmoji2, fruitEmoji3;
+
+    do {
+        fruitEmoji1 = fruitEmoji();
+        fruitEmoji2 = fruitEmoji();
+        fruitEmoji3 = fruitEmoji();
+    } while (fruitEmoji1 === fruitEmoji2 || fruitEmoji1 === fruitEmoji3 || fruitEmoji2 === fruitEmoji3);
+
+    let fruityQuestion = document.getElementsByClassName('question-area')[0];
+    fruityQuestion.innerHTML =
+
         `<div>
-            <span id='fruit1' type='number'>${fruit1}</span>
-            <span> x ${fruit1Multiple1} + </span>
-            <span id='fruit2' type='number'>${fruit2}</span>
-            <span> x ${fruit2Multiple1} + </span>
-            <span id='fruit3' type='number'>${fruit3}</span>
-            <span> x ${fruit3Multiple1} = </span>
-            <span id='answer1'>${answer1}</span>
-            </div>
+        <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
+        <span>${generateEmoji(fruitEmoji1, fruit1Multiple1)} + </span>
+        <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
+        <span>${generateEmoji(fruitEmoji2, fruit2Multiple1)} + </span>
+        <span id='fruit1' type='number' class='hidden'>${fruit3}</span>
+        <span>${generateEmoji(fruitEmoji3, fruit3Multiple1)} = </span>
+        <span id='answer1'>${answer1}</span>
+    </div>
 
-            <div>
-            <span id='fruit1' type='number'>${fruit1}</span>
-            <span> x ${fruit1Multiple2} + </span>
-            <span id='fruit2' type='number'>${fruit2}</span>
-            <span> x ${fruit2Multiple2} - </span>
-            <span id='fruit3' type='number'>${fruit3}</span>
-            <span> x ${fruit3Multiple2} = </span>
-            <span id='answer2'>${answer2}</span>
-            </div>
-            
-            <div>
-            <span id='fruit1' type='number'>${fruit1}</span>
-            <span> x ${fruit1Multiple3} - </span>
-            <span id='fruit2' type='number'>${fruit2}</span>
-            <span> x ${fruit2Multiple3} - </span>
-            <span id='fruit3' type='number'>${fruit3}</span>
-            <span> x ${fruit3Multiple3} = </span>
-            <span id='answer3'>${answer3}</span>
-            </div>`;
+    <div>
+        <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
+        <span>${generateEmoji(fruitEmoji1, fruit1Multiple2)} + </span>
+        <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
+        <span>${generateEmoji(fruitEmoji2, fruit2Multiple2)} - </span>
+        <span id='fruit1' type='number' class='hidden'>${fruit3}</span>
+        <span>${generateEmoji(fruitEmoji3, fruit3Multiple2)} = </span>
+        <span id='answer1'>${answer2}</span>
+    </div>
+    
+    <div>
+        <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
+        <span>${generateEmoji(fruitEmoji1, fruit1Multiple3)} - </span>
+        <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
+        <span>${generateEmoji(fruitEmoji2, fruit2Multiple3)} - </span>
+        <span id='fruit1' type='number' class='hidden'>${fruit3}</span>
+        <span>${generateEmoji(fruitEmoji3, fruit3Multiple3)} = </span>
+        <span id='answer1'>${answer3}</span>
+    </div>`;
 
-    displayMediumAnswer();
+    displayFruityAnswer();
 
 }
 
 /**
- * Updates answer-area html using template literals with structure for MEDIUM gameMode.
+ * Updates answer-area html using template literals with structure for FRUITY gameMode.
  */
-function displayMediumAnswer() {
-    let mediumAnswer = document.getElementsByClassName('answer-area')[0];
-    mediumAnswer.innerHTML =
-        `<div data-type='medium'>
+function displayFruityAnswer() {
+    let fruityAnswer = document.getElementsByClassName('answer-area')[0];
+    fruityAnswer.innerHTML =
+        `<div data-type='fruity'>
             Fruit1 = 
             <input id='guess1' type='number' />
         </div>
@@ -181,19 +187,6 @@ function displayMediumAnswer() {
             fruit3 = 
             <input id='guess3' type='number' />
         </div>`;
-
-}
-/**
- * Updates question-area html using template literals with structure and variables for FRUITY gameMode. Fruit numbers will be hidden from the user, instead showing fruit icons.
- */
-function displayFruityQuestion() {
-
-}
-
-/**
- * Updates answer-area html using template literals with structure for FRUITY gameMode.
- */
-function displayFruityAnswer() {
 
 }
 
