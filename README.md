@@ -8,7 +8,7 @@ The website has been designed for mobile-first, from iPhone 6 and onwards, and w
 
 ![Responsive Mockup](am-i-responsive screenshot saved in docs)
 
-### Lessons learned from previous project applicable to this one:
+### Lessons learned from previous project applicable to this one
 
 - Images could be converted to .webp images and compressing with tinyPNG, in an effort to improve lighthouse performance.
 - Include section on bug fixes.
@@ -34,11 +34,11 @@ The website has been designed for mobile-first, from iPhone 6 and onwards, and w
 
 ### Score Area
 
-**The Footer**
+### The Footer
 
 Potentially add a link to further reading on simultaneous equations.
 
-**Color palette and contrast**
+### Color palette and contrast
 
 A fruit stall theme has been used to add realism.
 
@@ -46,7 +46,7 @@ A fruit stall theme has been used to add realism.
 
 ![Contrast grid](link here)
 
-**Font Choice**
+### Font Choice
 
 A font without serifs was used to add a desirable informal tone to the site.
 
@@ -73,6 +73,8 @@ Lighthouse validation results vary accross the site (see docs) and screen sizes 
 The first main hurdle I faced was accessing the fruit1 and fruit2 variables. I needed to access these from the checkAnswers function but the fruit values were assigned within the scope of the displayEasyQuestion function. I believe the problem would have been easiest to solve by assigning these in the global scope but this is bad practice.
 
 I spent a long time trying to pass these as parameters from one function to the next. Chrome devtools proved particularly useful here, as I was able to step through my code and pinpoint exactly when the variables vanished from Scope, although I ultimately failed to carry them through to the checkAnswers function. Eventually I realised I could access these from the DOM using a combination of parseInt, getElementsById, and using unique IDs within the HTML which had itself been created using template litorals.
+
+I also had a struggled to pass through gameMode from the event listener, but eventually solved this using the .firstchold method to get from the DOM.
 
 ### Peer review
 
