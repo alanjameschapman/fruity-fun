@@ -106,11 +106,11 @@ function displayNormalAnswer() {
     NormalAnswer.innerHTML =
         `<div data-type='normal'>
             Fruit1 = 
-            <input id='guess1' type='number' />
+            <input id='guess1' type='number' min="1"/>
         </div>
         <div>
             Fruit2 = 
-            <input id='guess2' type='number' />
+            <input id='guess2' type='number' min="1"/>
         </div>`;
 
 }
@@ -177,15 +177,15 @@ function displayFruityAnswer() {
     fruityAnswer.innerHTML =
         `<div data-type='fruity'>
             Fruit1 = 
-            <input id='guess1' type='number' />
+            <input id='guess1' type='number' min="1"/>
         </div>
         <div>
             Fruit2 = 
-            <input id='guess2' type='number' />
+            <input id='guess2' type='number' min="1"/>
         </div>
         <div>
-            fruit3 = 
-            <input id='guess3' type='number' />
+            Fruit3 = 
+            <input id='guess3' type='number' min="1"/>
         </div>`;
 
 }

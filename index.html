@@ -4,36 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Fruity Fun</title>
 
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <main>
-    <h1 class="heading">Fruity Fun</h1>
+      <h1 class="heading">Fruity Fun</h1>
 
-    <div class="instruction-area">Instructions (collapsable)</div>
+      <div class="instruction-area">
+        Welcome to Fruity Fun, the game where you have to guess the value of the
+        fruit shown.
+        <button type="button" class="collapsible" data-type="collapse">
+          Instructions
+        </button>
+        <div class="content">
+          Simply enter your guesses into the boxes and click submit. If you need
+          a challenge, select the Fruity game mode - good luck! This game is
+          actually simultaneous equations in disguise. For tips on how to solve
+          these, head over to
+          <a
+            href="https://www.bbc.co.uk/bitesize/guides/zqf3k2p/revision/1"
+            target="_blank"
+            rel="noopener"
+            aria-label="link opens in new tab"
+            >here</a
+          >
+          to learn how!
+        </div>
+      </div>
 
-    <div class="mode-area">
-      <button data-type="normal">Normal</button>
-      <button data-type="fruity">Fruity!</button>
-    </div>
+      <div class="mode-area">
+        <button data-type="normal">Normal</button>
+        <button data-type="fruity">Fruity!</button>
+      </div>
 
-    <div class="question-area">Question Area</div>
+      <div class="question-area">Question Area</div>
 
-    <div class="answer-area">
-      Answers Area
-    </div>
+      <div class="answer-area">Answers Area</div>
 
-    <div>
+      <div>
         <button data-type="submit">Submit</button>
-    </div>
+      </div>
 
-    <div class="score-area">
-      <p class="scores">Correct Answers <span id="correct">0</span></p>
-      <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
-    </div>
+      <div class="score-area">
+        <p class="scores">Correct Answers <span id="correct">0</span></p>
+        <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
+      </div>
     </main>
+    <footer>
+      This site is intended solely for educational purposes. All images and
+      videos remain the property of
+    </footer>
     <script src="assets/js/script.js"></script>
-  </bod y>
+  </body>
 </html>

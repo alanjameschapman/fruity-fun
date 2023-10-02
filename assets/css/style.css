@@ -1,5 +1,5 @@
 body {
-    background-color: aquamarine;
+    background: url(../images/fruity-background-compressed.jpg) no-repeat center center/cover;
 }
 
 .hidden {

@@ -109,7 +109,11 @@ The colour palette was created using [Colormind](link goes here), with input for
 
 The contrast was checked using Eight [Shapes Contrast Grid](link goes here)
 
-The images used are from [Pexels](https://www.pexels.com/). The authors were XX.
+The background image from [Pexels](https://www.pexels.com/). The author is Any Lane.
+
+The favicon is from the open source project Twemoji, copyright 2020 Twitter, Inc and other contributors. It is licensed under CC-BY 4.0.
+
+The site is intended solely for educational purposes. All images and favicons remain the property of those credited above
 
 ### Structure
 
