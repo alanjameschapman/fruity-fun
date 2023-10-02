@@ -35,22 +35,22 @@ function runGame(gameMode) {
 
     if (gameMode === 'easy') {
         // if answer2 is negative then regenerate random numbers until answer2 is positive
-        let answer2 = ((fruit1 * fruit1Multiple2) <= (fruit2 * fruit2Multiple2));
+        let answer2 = ((fruit1 * fruit1Multiple2) - (fruit2 * fruit2Multiple2));
         if (Math.sign(answer2) === -1) {
             runGame(gameMode);
         } else displayEasyQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2);
     } else if (gameMode === 'medium') {
         let fruit3 = Math.floor(Math.random() * 7) + 1;
-        let fruit1Multiple3 = Math.floor(Math.random() * 3) + 1;
-        let fruit2Multiple3 = Math.floor(Math.random() * 3) + 1;
         let fruit3Multiple1 = Math.floor(Math.random() * 3) + 1;
         let fruit3Multiple2 = Math.floor(Math.random() * 3) + 1;
         let fruit3Multiple3 = Math.floor(Math.random() * 3) + 1;
+        let fruit1Multiple3 = Math.floor(Math.random() * 3) + 1;
+        let fruit2Multiple3 = Math.floor(Math.random() * 3) + 1;
 
         // if answer3 is negative then regenerate random numbers until answer3 is positive
-        let answer3 = (((fruit1 * fruit1Multiple3) - (fruit2 * fruit2Multiple3)) - (fruit3 * fruit3Multiple3));
+        let answer3 = (fruit1 * fruit1Multiple3) - (fruit2 * fruit2Multiple3) - (fruit3 * fruit3Multiple3);
         if (Math.sign(answer3) === -1) {
-            runGame('medium');
+            runGame(gameMode);
         } else {
             displayMediumQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, fruit3, fruit3Multiple1, fruit3Multiple2, fruit3Multiple3, fruit1Multiple3, fruit2Multiple3);
         }
