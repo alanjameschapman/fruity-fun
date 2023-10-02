@@ -68,21 +68,33 @@ function displayEasyQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, f
     let answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1;
     let answer2 = fruit1 * fruit1Multiple2 - fruit2 * fruit2Multiple2;
 
+    let fruitEmoji1, fruitEmoji2;
+
+    do {
+        fruitEmoji1 = fruitEmoji();
+        fruitEmoji2 = fruitEmoji();
+    } while (fruitEmoji1 === fruitEmoji2);
+
     let easyQuestion = document.getElementsByClassName('question-area')[0];
     easyQuestion.innerHTML =
+
         `<div>
-            <span id='fruit1' type='number'>${fruit1}</span>
-            <span> x ${fruit1Multiple1} + </span>
-            <span id='fruit2' type='number'>${fruit2}</span>
-            <span> x ${fruit2Multiple1} = </span>
+            <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
+            <span>${generateEmoji(fruitEmoji1, fruit1Multiple1)} + </span>
+            <span class='hidden'>${fruit1Multiple1}</span>
+            <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
+            <span>${generateEmoji(fruitEmoji2, fruit2Multiple1)} = </span>
+            <span class='hidden'> x ${fruit2Multiple1}</span>
             <span id='answer1'>${answer1}</span>
             </div>
 
             <div>
-            <span id='fruit1' type='number'>${fruit1}</span>
-            <span> x ${fruit1Multiple2} - </span>
-            <span id='fruit2' type='number'>${fruit2}</span>
-            <span> x ${fruit2Multiple2} = </span>
+            <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
+            <span>${generateEmoji(fruitEmoji1, fruit1Multiple2)} - </span>
+            <span class='hidden'>${fruit1Multiple2}</span>
+            <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
+            <span>${generateEmoji(fruitEmoji2, fruit2Multiple2)} = </span>
+            <span class='hidden'>${fruit2Multiple2}</span>
             <span id='answer1'>${answer2}</span>
             </div>`;
 
@@ -231,4 +243,20 @@ function incrementCorrect() {
 function incrementIncorrect() {
     let oldScore = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldScore;
+}
+
+/** Creates an array of fruit and returns one at random for use in displayAnswer functions. */
+function fruitEmoji() {
+    emojiArray = ['&#127815', '&#127820', '&#127821', '&#127823', '&#127824', '&#127827', '&#129373'];
+    randomChoice = Math.floor(Math.random() * emojiArray.length);
+    return emojiArray[randomChoice];
+}
+
+/** Takes an emoji, creates a string of them (determined by value of fruitMultiple) and returns to displayAnswer */
+function generateEmoji(emoji, count) {
+    let emojiString = '';
+    for (let i = 0; i < count; i++) {
+        emojiString += emoji;
+    }
+    return emojiString;
 }
