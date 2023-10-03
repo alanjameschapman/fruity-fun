@@ -97,7 +97,6 @@ function displayNormalQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
 
     displayNormalAnswer(fruitEmoji1, fruitEmoji2);
 
-
 }
 
 /**
@@ -234,11 +233,11 @@ function checkAnswers(gameMode) {
     if (isCorrect) {
         userFeedback(gameMode);
         incrementCorrect();
-        runGame(gameMode);
+        // runGame(gameMode);
     } else {
         userFeedback(gameMode);
         incrementIncorrect();
-        runGame(gameMode);
+        // runGame(gameMode);
     }
 
 }

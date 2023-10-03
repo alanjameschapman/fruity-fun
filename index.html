@@ -13,17 +13,23 @@
     <main>
       <h1 class="heading">Fruity Fun</h1>
 
-      <div class="instruction-area pane">
+      <section class="instruction-area pane">
+        <h3>Instructions</h3>
         <p>
           Welcome to Fruity Fun, the game where you have to guess the value of
           the fruit shown.
         </p>
-        <h3>Instructions</h3>
+
         <p>
-          Simply enter your guesses into the boxes and click submit. If you need
-          a challenge, select the Fruity game mode - good luck! This game is
+          Simply enter your guesses into the boxes and click submit. Feedback will be provided, and to try the next question, click the game button. If you need
+          a challenge, select the Fruity game mode - good luck!
+                  </p>
+        </p>
+        
+        <p>
+        Pssst:This game is
           actually simultaneous equations in disguise. For tips on how to solve
-          these, head over to
+          these, click
           <a
             href="https://www.bbc.co.uk/bitesize/guides/zqf3k2p/revision/1"
             target="_blank"
@@ -33,33 +39,35 @@
           >
           to learn how!
         </p>
-      </div>
+      </section>
 
-      <div class="mode-area pane">
+      <section class="mode-area pane">
         <h3>Game Mode:</h3>
         <button data-type="normal">Normal</button>
         <button data-type="fruity">Fruity!</button>
-      </div>
+      </section>
 
-      <div class="question-area pane">Question Area</div>
+      <section class="question-area pane">Question Area</section>
 
-      <h3>Your guesses...</h3>
+      <section class="pane">
+        <h3>Your guesses</h3>
 
-      <div class="answer-area pane">Answers Area</div>
+        <div class="answer-area">Answers Area</div>
 
-      <div>
-        <button data-type="submit">Submit</button>
-      </div>
+        <div>
+          <button data-type="submit">Submit</button>
+        </div>
+      </section>
 
-      <div class="feedback-area pane">
+      <section class="feedback-area pane">
         <h2>Feedback:</h2>
-      </div>
+      </section>
 
-      <div class="score-area pane">
+      <section class="score-area pane">
         <h2>Score Tally</h2>
         <p class="scores">Correct Answers <span id="correct">0</span></p>
         <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
-      </div>
+      </section>
     </main>
     <footer>
       This site is intended solely for educational purposes. See readme for all

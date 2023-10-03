@@ -2,18 +2,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,400&family=Dekko&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Martel:wght@200;400;700&display=swap");
 
 /* Asterisk wildcard selector to override default styles added by the browser */
-/* * {
-    margin: 5px;
+* {
+    margin: 0;
     border: 0;
     padding: 0;
     box-sizing: border-box;
-} */
+}
 
 /* Global styles */
 body {
     background: url(../images/fruity-background-compressed.jpg) no-repeat center center/cover;
     font-family: 'Chakra Petch', sans-serif;
     font-size: large;
+}
+
+.heading {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    /* width: 100%; */
 }
 
 .hidden {
@@ -23,21 +32,36 @@ body {
 button {
     font-family: 'Chakra Petch', sans-serif;
     font-size: large;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
 }
 
-.question-area {
-    font-size: 2rem;
-    /* max-width: 320px; */
+button:hover {
+    color: white;
+    background-color: black;
 }
 
-.answer-area {
+input {
+    height: 40px;
+    width: 40px;
+}
+
+.question-area,
+#fruit1Feedback,
+#fruit2Feedback,
+.guess1,
+.guess2,
+.guess3 {
     font-size: 2rem;
-    /* max-width: 320px; */
 }
 
 .mode-area {
     display: flex;
-    flex: auto;
+    justify-content: space-between;
+    align-self: center;
 }
 
 .pane {
@@ -46,4 +70,8 @@ button {
     border-radius: 10px;
     margin: 10px;
     /* width: 100%; */
+}
+
+footer {
+    margin-left: 10px;
 }
