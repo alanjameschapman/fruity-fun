@@ -14,15 +14,17 @@ body {
     background: url(../images/fruity-background-compressed.jpg) no-repeat center center/cover;
     font-family: 'Chakra Petch', sans-serif;
     font-size: large;
+    justify-content: left;
 }
 
 .heading {
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
-    /* width: 100%; */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .hidden {
@@ -35,23 +37,34 @@ button {
     width: 80px;
     height: 40px;
     border-radius: 10px;
-    color: black;
+    color: red;
     background-color: white;
+    font-weight: bold;
+    border-color: green;
+    border: solid 0.2em;
+    margin: 0.5em 1em;
 }
 
 button:hover {
     color: white;
-    background-color: black;
+    background-color: green;
+
 }
 
 input {
     height: 40px;
     width: 40px;
+    font-size: 2rem;
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
 }
 
 .question-area,
 #fruit1Feedback,
 #fruit2Feedback,
+#fruit3Feedback,
 .guess1,
 .guess2,
 .guess3 {
@@ -61,17 +74,29 @@ input {
 .mode-area {
     display: flex;
     justify-content: space-between;
-    align-self: center;
+    text-align: center;
 }
 
 .pane {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.75);
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
-    /* width: 100%; */
+    max-width: fit-content;
+    align-content: center;
+    justify-self: center;
 }
 
 footer {
     margin-left: 10px;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    color: green;
+    font-weight: bold;
 }

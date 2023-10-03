@@ -44,8 +44,6 @@ A fruit stall theme has been used to add realism.
 
 ![Color palette](link here)
 
-![Contrast grid](link here)
-
 ### Font Choice
 
 A font without serifs was used to add a desirable informal tone to the site.

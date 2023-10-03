@@ -1,6 +1,7 @@
 // Wait for DOM to load then listen to button events.
 
 document.addEventListener('DOMContentLoaded', function () {
+
     let buttons = document.getElementsByTagName('button');
 
     for (let button of buttons) {
@@ -109,12 +110,12 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
             <span id='fruit1Feedback'>
                 ${fruitEmoji1}
             </span>
-            <span><input id='guess1' type='number' min="1" max="7"/></span>
+            <span><label for="guess1"></label><input name="guess1" id='guess1' type='number' min="1" max="7"/></span>
         </div>
         <div>
             <span id='fruit2Feedback'>
                 ${fruitEmoji2}
-            </span><input id='guess2' type='number' min="1" max="7"/></span>
+            </span><label for="guess2"></label><input name="guess2" id='guess2' type='number' min="1" max="7"/></span>
         </div>`;
 
 }
@@ -180,17 +181,22 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
     let fruityAnswer = document.getElementsByClassName('answer-area')[0];
     fruityAnswer.innerHTML =
         `<div data-type='fruity'>
-            <div id='fruit1Feedback'>
-                Your guess for ${fruitEmoji1} is...
-            <input id='guess1' type='number' min="1" max="7"/>
-            </div>
-            <div id='fruit2Feedback'>
-                Your guess for ${fruitEmoji2} is...
-            <input id='guess2' type='number' min="1" max="7"/>
-            </div>
-            <div id='fruit3Feedback'>
-                Your guess for ${fruitEmoji3} is...
-            <input id='guess3' type='number' min="1" max="7"/>
+            <span id='fruit1Feedback'>
+                ${fruitEmoji1}
+            </span>
+            <span><label for="guess1"><input name="guess1" id='guess1' type='number' min="1" max="7"/></span>
+        </div>
+        <div>
+            <span id='fruit2Feedback'>
+                ${fruitEmoji2}
+            </span>
+            <span><label for="guess2"><input name="guess2" id='guess2' type='number' min="1" max="7"/></span>
+        </div>
+        <div>
+            <span id='fruit3Feedback'>
+                ${fruitEmoji3}
+            </span>
+            <span><label for="guess3"><input name="guess3" id='guess3' type='number' min="1" max="7"/></span>
             </div>
         </div>`;
 
@@ -233,11 +239,9 @@ function checkAnswers(gameMode) {
     if (isCorrect) {
         userFeedback(gameMode);
         incrementCorrect();
-        // runGame(gameMode);
     } else {
         userFeedback(gameMode);
         incrementIncorrect();
-        // runGame(gameMode);
     }
 
 }
@@ -282,7 +286,7 @@ function userFeedback(gameMode) {
     if (gameMode === 'normal') {
         let feedback = document.getElementsByClassName('feedback-area')[0];
         feedback.innerHTML =
-            `<h2>Feedback:</h2>
+            `<h1>Feedback:</h1>
             <div>
             For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
             </div>
@@ -290,16 +294,17 @@ function userFeedback(gameMode) {
             </div>`;
     } else {
         let userGuess3 = parseInt(document.getElementById('guess3').value);
-        let fruitEmoji3 = document.getElementById('fruitEmoji3');
+        let fruitEmoji3 = document.getElementById('fruit3Feedback').innerText;
+        let fruit3 = document.getElementById('fruit3').innerText;
 
         let feedback = document.getElementsByClassName('feedback-area')[0];
         feedback.innerHTML =
-            `<h2>Feedback:</h2>
+            `<h1>Feedback:</h1>
             <div>
             For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
             </div>
         
-            <div > 
+            <div> 
              For ${fruitEmoji2}, you guessed ${userGuess2}. The anwer was ${fruit2}.
             </div>
         
