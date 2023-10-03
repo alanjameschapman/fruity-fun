@@ -1,7 +1,20 @@
 body {
     background: url(../images/fruity-background-compressed.jpg) no-repeat center center/cover;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: large;
 }
 
 .hidden {
     display: none;
+}
+
+button {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: large;
+}
+
+.question-area {
+    font-size: 2rem;
+    /* width: 100%; */
+    max-width: 320px;
 }

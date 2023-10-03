@@ -95,21 +95,21 @@ function displayNormalQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
         <span id='answer1'>${answer2}</span>
     </div>`;
 
-    displayNormalAnswer(gameMode);
+    displayNormalAnswer(fruitEmoji1, fruitEmoji2);
 }
 
 /**
  * Updates answer-area html using template literals with structure for NORMAL gameMode.
  */
-function displayNormalAnswer() {
+function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
     let NormalAnswer = document.getElementsByClassName('answer-area')[0];
     NormalAnswer.innerHTML =
         `<div data-type='normal'>
-            Fruit1 = 
+            ${fruitEmoji1} = 
             <input id='guess1' type='number' min="1"/>
         </div>
         <div>
-            Fruit2 = 
+            ${fruitEmoji2} = 
             <input id='guess2' type='number' min="1"/>
         </div>`;
 
@@ -140,7 +140,7 @@ function displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
         <span>${generateEmoji(fruitEmoji1, fruit1Multiple1)} + </span>
         <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
         <span>${generateEmoji(fruitEmoji2, fruit2Multiple1)} + </span>
-        <span id='fruit1' type='number' class='hidden'>${fruit3}</span>
+        <span id='fruit3' type='number' class='hidden'>${fruit3}</span>
         <span>${generateEmoji(fruitEmoji3, fruit3Multiple1)} = </span>
         <span id='answer1'>${answer1}</span>
     </div>
@@ -150,9 +150,9 @@ function displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
         <span>${generateEmoji(fruitEmoji1, fruit1Multiple2)} + </span>
         <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
         <span>${generateEmoji(fruitEmoji2, fruit2Multiple2)} - </span>
-        <span id='fruit1' type='number' class='hidden'>${fruit3}</span>
+        <span id='fruit3' type='number' class='hidden'>${fruit3}</span>
         <span>${generateEmoji(fruitEmoji3, fruit3Multiple2)} = </span>
-        <span id='answer1'>${answer2}</span>
+        <span id='answer2'>${answer2}</span>
     </div>
     
     <div>
@@ -160,31 +160,31 @@ function displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
         <span>${generateEmoji(fruitEmoji1, fruit1Multiple3)} - </span>
         <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
         <span>${generateEmoji(fruitEmoji2, fruit2Multiple3)} - </span>
-        <span id='fruit1' type='number' class='hidden'>${fruit3}</span>
+        <span id='fruit3' type='number' class='hidden'>${fruit3}</span>
         <span>${generateEmoji(fruitEmoji3, fruit3Multiple3)} = </span>
-        <span id='answer1'>${answer3}</span>
+        <span id='answer3'>${answer3}</span>
     </div>`;
 
-    displayFruityAnswer();
+    displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3);
 
 }
 
 /**
  * Updates answer-area html using template literals with structure for FRUITY gameMode.
  */
-function displayFruityAnswer() {
+function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
     let fruityAnswer = document.getElementsByClassName('answer-area')[0];
     fruityAnswer.innerHTML =
         `<div data-type='fruity'>
-            Fruit1 = 
+            ${fruitEmoji1}
             <input id='guess1' type='number' min="1"/>
         </div>
         <div>
-            Fruit2 = 
+            ${fruitEmoji2}
             <input id='guess2' type='number' min="1"/>
         </div>
         <div>
-            Fruit3 = 
+            ${fruitEmoji3}
             <input id='guess3' type='number' min="1"/>
         </div>`;
 
