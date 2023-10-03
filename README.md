@@ -50,7 +50,7 @@ A fruit stall theme has been used to add realism.
 
 A font without serifs was used to add a desirable informal tone to the site.
 
-XX is a variable font, which may help to reduce font family file size. Refer to different weights etc.
+Chakra Petch is a variable font, which may help to reduce font family file size. Refer to different weights etc.
 
 ## Testing
 
@@ -101,7 +101,7 @@ Following on from #peer-code-review on Slack:
 
 ### Content
 
-The XXX font was taken from Google Fonts.
+The Chakra Petch font was taken from Google Fonts and the author is Cadson Demak.
 
 All icons were taken from [Font Awesome](link goes here)
 

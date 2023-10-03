@@ -1,3 +1,15 @@
+/* Google Font import */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,400&family=Dekko&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Martel:wght@200;400;700&display=swap");
+
+/* Asterisk wildcard selector to override default styles added by the browser */
+/* * {
+    margin: 5px;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/* Global styles */
 body {
     background: url(../images/fruity-background-compressed.jpg) no-repeat center center/cover;
     font-family: 'Chakra Petch', sans-serif;
@@ -15,6 +27,23 @@ button {
 
 .question-area {
     font-size: 2rem;
+    /* max-width: 320px; */
+}
+
+.answer-area {
+    font-size: 2rem;
+    /* max-width: 320px; */
+}
+
+.mode-area {
+    display: flex;
+    flex: auto;
+}
+
+.pane {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
     /* width: 100%; */
-    max-width: 320px;
 }
