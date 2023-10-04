@@ -315,4 +315,4 @@ function userFeedback(gameMode) {
             For ${fruitEmoji3}, you guessed ${userGuess3}. The anwer was ${fruit3}.
             </div>`;
     }
-};;
+}

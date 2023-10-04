@@ -54,7 +54,7 @@ Displays a tally of correct and incorrect answers
 
 ### Color palette and contrast
 
-A fruity background has been used to add realism. 
+A fruity background has been used to add realism.
 
 ### Font Choice
 
@@ -120,22 +120,20 @@ The site was deployed to GitHub pages. The steps to deploy were as follows:
 
 ## Future Enhancements
 
-Following on from #peer-code-review on Slack:
-
-- Feedback 1.
-- Feedback 2 etc.
+Instead of an incremental tally a countdown could be used to add some jeopardy. Perhaps a countdown from 5 lives.
 
 ## Credits
+
+Following on from #peer-code-review on Slack and mentor feedback I implemented a few fixes:
+
+- Used aria-label instead of label
+- Feedback 2 etc.
 
 ### Content
 
 The Chakra Petch font was taken from Google Fonts and the author is Cadson Demak.
 
-All icons were taken from [Font Awesome](link goes here)
-
-The contrast was checked using Eight [Shapes Contrast Grid](link goes here)
-
-The background image from [Pexels](https://www.pexels.com/). The author is Any Lane.
+The background image is from [Pexels](https://www.pexels.com/). The author is Any Lane.
 
 The favicon is from the open source project Twemoji, copyright 2020 Twitter, Inc and other contributors. It is licensed under CC-BY 4.0.
 
@@ -145,7 +143,7 @@ The site is intended solely for educational purposes. All images and favicons re
 
 The Code Institute's Love Maths! website was used as guidance for semantic structure and commit journey.
 
-Some elements of this Readme have been taken and repurposed from the Readme shared by the author's Project 1.
+Some elements of this Readme have been taken and repurposed from the Readme shared by the author's PP1.
 
 ## Self-assessment AKA Reaching for Distinction
 
