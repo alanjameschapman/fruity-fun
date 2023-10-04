@@ -47,7 +47,7 @@ button {
 button:hover {
     color: white;
     background-color: green;
-    border-color: green;
+    border: none;
 }
 
 input {
