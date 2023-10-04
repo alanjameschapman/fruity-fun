@@ -20,9 +20,9 @@ A fruity background has been used to add realism. The vibrant, colorful variatio
 
 ### Font Choice
 
-A font without serifs was used to add a desirable informal tone to the site.
+A font without serifs was used to add a desirable informal tone to the site. It has an old-school video game feel to it which seems appropriate.
 
-Chakra Petch is a variable font, which may help to reduce font family file size. Refer to different weights etc.
+Chakra Petch is a variable font, which may help to reduce font family file size.
 
 ### Lessons learned from previous project implemented here
 
