@@ -26,23 +26,35 @@ The website has been designed for mobile-first, from iPhone 6 and onwards, and w
 
 ## Functionality
 
-### Game Mode
+For a description of each function, docstrings are provided within the JS file. The site is broken down into the following sections:
+
+### Instructions Area
+
+Instructions provided to user, along with a link to help them understand how to answer the questions.
+
+### Game Mode Area
+
+Allows the user to select their preferred difficulty level using submit buttons.
 
 ### Question Area
 
+Displays a set of equations using emoji strings, always evaluating to positive answers for realism.
+
 ### Answer Area
+
+Allows the user to input their guesses. Input fields are contrained to value between 1 and 7 units as per instructions.
+
+### Feedback Area
+
+Displays feedback ot the user, showing how their guesses compare with the correct answers.
 
 ### Score Area
 
-### The Footer
-
-Potentially add a link to further reading on simultaneous equations.
+Displays a tally of correct and incorrect answers
 
 ### Color palette and contrast
 
-A fruit stall theme has been used to add realism.
-
-![Color palette](link here)
+A fruity background has been used to add realism. 
 
 ### Font Choice
 
@@ -64,9 +76,27 @@ No errors were found when passing through the official [(Jigsaw) validator](link
 
 ### LIGHTHOUSE validation
 
-Lighthouse validation results vary accross the site (see docs) and screen sizes but in all cases checked, Accessibility is above 90%.
+Initial lighthouse results showed room for improvement in all facets, bar 'Best Practices'.
 
-### Debugging
+![Initial Lighthouse results](/docs/lighthouse/lighthouse-initial.png)
+
+Adding labels to the input boxes, reducing transparency (to improve contrast ratio), and adjusting heading levels made a slight improvement to accessibility - 83 to 85, so this might be addressed later:
+
+![Lighthouse results after accessibility tweaks](/docs/lighthouse/lighthouse-labels-transparency-headings.png)
+
+Adding meta tags to the html head increased the SEO from 82 to 100:
+
+![Lighthouse results after SEO tweaks](/docs/lighthouse/lighthouse-meta-tags.png)
+
+The remaining improvements are regarding Accessibility:
+
+![Lighthouse Accessibility issues](/docs/lighthouse/lighthouse-accessibility.png)
+
+Adding aria-labels to the input fields improves accessibility from 87 to 97:
+
+![Lighthouse aria-label](/docs/lighthouse/lighthouse-aria-label.png)
+
+### Debugging Code
 
 The first main hurdle I faced was accessing the fruit1 and fruit2 variables. I needed to access these from the checkAnswers function but the fruit values were assigned within the scope of the displayEasyQuestion function. I believe the problem would have been easiest to solve by assigning these in the global scope but this is bad practice.
 
@@ -86,7 +116,7 @@ The site was deployed to GitHub pages. The steps to deploy were as follows:
 - In the GitHub repository, I navigated to the Settings tab
 - From the source section drop-down menu, I selected the Master Branch
 - Once the master branch was selected, the page refreshed with a ribbon showing successful deployment.
-- The live link can be found here - <<https://alanjameschapman.github.io/mobile-vet/index.html>
+- The live link can be found here - <<https://alanjameschapman.github.io/fruity-fun/>
 
 ## Future Enhancements
 
@@ -102,8 +132,6 @@ Following on from #peer-code-review on Slack:
 The Chakra Petch font was taken from Google Fonts and the author is Cadson Demak.
 
 All icons were taken from [Font Awesome](link goes here)
-
-The colour palette was created using [Colormind](link goes here), with input for main brand colour from XX.
 
 The contrast was checked using Eight [Shapes Contrast Grid](link goes here)
 

@@ -110,12 +110,12 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
             <span id='fruit1Feedback'>
                 ${fruitEmoji1}
             </span>
-            <span><label for="guess1"></label><input name="guess1" id='guess1' type='number' min="1" max="7"/></span>
+            <span></label><input aria-label='guess1' id='guess1' type='number' min="1" max="7" required/></span>
         </div>
         <div>
             <span id='fruit2Feedback'>
                 ${fruitEmoji2}
-            </span><label for="guess2"></label><input name="guess2" id='guess2' type='number' min="1" max="7"/></span>
+            </span><input aria-label='guess2' id='guess2' type='number' min="1" max="7" required/></span>
         </div>`;
 
 }
@@ -184,19 +184,19 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
             <span id='fruit1Feedback'>
                 ${fruitEmoji1}
             </span>
-            <span><label for="guess1"><input name="guess1" id='guess1' type='number' min="1" max="7"/></span>
+            <span><input aria-label='guess1' id='guess1' type='number' min="1" max="7" required/></span>
         </div>
         <div>
             <span id='fruit2Feedback'>
                 ${fruitEmoji2}
             </span>
-            <span><label for="guess2"><input name="guess2" id='guess2' type='number' min="1" max="7"/></span>
+            <span><input aria-label='guess2' id='guess2' type='number' min="1" max="7" required/></span>
         </div>
         <div>
             <span id='fruit3Feedback'>
                 ${fruitEmoji3}
             </span>
-            <span><label for="guess3"><input name="guess3" id='guess3' type='number' min="1" max="7"/></span>
+            <span><input aria-label='guess3' id='guess3' type='number' min="1" max="7" required/></span>
             </div>
         </div>`;
 
@@ -246,11 +246,13 @@ function checkAnswers(gameMode) {
 
 }
 
+/** Gets old correct score and increments by 1*/
 function incrementCorrect() {
     let oldScore = parseInt(document.getElementById("correct").innerText);
     document.getElementById("correct").innerText = ++oldScore;
 }
 
+/** Gets old correct score and increments by 1.
 function incrementIncorrect() {
     let oldScore = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldScore;
@@ -272,6 +274,7 @@ function generateEmoji(emoji, count) {
     return emojiString;
 }
 
+/** Gets user guesses, fruit emojis, and answers and provides feedback to user with template literals. */
 function userFeedback(gameMode) {
 
     let userGuess1 = parseInt(document.getElementById('guess1').value);
@@ -286,7 +289,7 @@ function userFeedback(gameMode) {
     if (gameMode === 'normal') {
         let feedback = document.getElementsByClassName('feedback-area')[0];
         feedback.innerHTML =
-            `<h1>Feedback:</h1>
+            `<h2>Feedback:</h2>
             <div>
             For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
             </div>
@@ -299,7 +302,7 @@ function userFeedback(gameMode) {
 
         let feedback = document.getElementsByClassName('feedback-area')[0];
         feedback.innerHTML =
-            `<h1>Feedback:</h1>
+            `<h2>Feedback:</h2>
             <div>
             For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
             </div>
