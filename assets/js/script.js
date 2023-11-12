@@ -252,6 +252,12 @@ function incrementCorrect() {
     document.getElementById("correct").innerText = ++oldScore;
 }
 
+/** Gets old incorrect score and increments by 1*/
+function incrementIncorrect() {
+    let oldScore = parseInt(document.getElementById("incorrect").innerText);
+    document.getElementById("incorrect").innerText = ++oldScore;
+}
+
 /** Creates an array of fruit and returns one at random for use in displayAnswer functions. */
 function fruitEmoji() {
     emojiArray = ['&#127815', '&#127820', '&#127821', '&#127823', '&#127824', '&#127827', '&#129373'];
