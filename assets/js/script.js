@@ -280,6 +280,14 @@ function userFeedback(gameMode) {
     let userGuess1 = parseInt(document.getElementById('guess1').value);
     let userGuess2 = parseInt(document.getElementById('guess2').value);
 
+    let feedback = document.getElementsByClassName('feedback-area')[0];
+
+    // Validate userGuess1 and userGuess2
+    if (isNaN(userGuess1) || isNaN(userGuess2)) {
+        feedback.innerHTML = "<h2 style='color:red;'>Please enter integers between 1-7 in each box. Blanks not allowed.</h2>";
+        return;
+    }
+    
     let fruitEmoji1 = document.getElementById('fruit1Feedback').innerText;
     let fruitEmoji2 = document.getElementById('fruit2Feedback').innerText;
 
@@ -297,6 +305,13 @@ function userFeedback(gameMode) {
             </div>`;
     } else {
         let userGuess3 = parseInt(document.getElementById('guess3').value);
+        
+        // Validate userGuess3
+        if (isNaN(userGuess3)) {
+            feedback.innerHTML = "<h2 style='color:red;'>Please enter integers between 1-7 in each box. Blanks not allowed.</h2>";
+            return;
+        }
+
         let fruitEmoji3 = document.getElementById('fruit3Feedback').innerText;
         let fruit3 = document.getElementById('fruit3').innerText;
 
@@ -306,11 +321,9 @@ function userFeedback(gameMode) {
             <div>
             For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
             </div>
-        
             <div> 
              For ${fruitEmoji2}, you guessed ${userGuess2}. The anwer was ${fruit2}.
             </div>
-        
             <div>
             For ${fruitEmoji3}, you guessed ${userGuess3}. The anwer was ${fruit3}.
             </div>`;
