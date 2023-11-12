@@ -6,13 +6,13 @@ Coding errors were caught and fixed using the [CI recommended JS validator](http
 
 ![CI JS Hint](link here)
 
-## User Story Testing
+## User Story Checks
 
-| As a user, I want to... | Requirement met | Image(s) |
-| :---------------------: | :------------: | :------: |
-| Play a solo, fun interactive game | YES | ![story1](/docs/testing/user_stories/story1.png) |
+| As a user, I want to... | Requirement met | Evidence |
+| :---------------------- | :------------: | :-------: |
+| Play a solo, fun interactive game | YES | Interactive features: game mode, mouse hover feedback, guess feedback, score tally. |
 | Learn fundamental mathematical concepts | YES | ![story2](/docs/testing/user_stories/story2.png) |
-| - Ability to change the level of difficulty, depending on ability | YES | ![story3](/docs/testing/user_stories/story3.png) |
+| Ability to change the level of difficulty, depending on ability | YES | ![story3](/docs/testing/user_stories/story3.png) |
 | Input my guesses, receiving feedback of any invalid inputs | YES | ![story4](/docs/testing/user_stories/story4.png) |
 | Get feedback when my mouse is hovering above valid inputs | YES | ![story5](/docs/testing/user_stories/story5.png) |
 | Keep tally of my correct and incorrect guesses | YES | ![story6](/docs/testing/user_stories/story6.png) |
