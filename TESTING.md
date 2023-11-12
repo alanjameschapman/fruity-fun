@@ -4,7 +4,7 @@
 
 Coding errors were caught and fixed using the [CI recommended JS validator](https://jshint.com/). The deployed site returned no errors.
 
-![CI JS Hint](link here)
+![CI JS Hint](screenshot here)
 
 ## User Story Checks
 
@@ -22,9 +22,9 @@ Coding errors were caught and fixed using the [CI recommended JS validator](http
 
 The only user input was for the user guesses, and validated for various incorrect inputs as shown below.
 
-| Input Tested | Inputs Validated | Validation Test | Expected Outcome | Actual Outcome | Pass/Fail |
-| :-------------: | :--------------: | :-------------: | :--------------: | :------------: | :-------: |
-| Guesses |  | '', letter and invalid number (0 and negative) | Print error, repeat input prompt | ![home validation](/docs/testing/functions/home.png) | PASS |
+| Inputs Validated | Validation Test | Expected Outcome | Actual Outcome | Pass/Fail |
+| :--------------: | :-------------: | :--------------: | :------------: | :-------: |
+| Guesses | '', letter and invalid number (0 and negative) | Print error, repeat input prompt | ![home validation](/docs/testing/functions/home.png) | PASS |
 
 
 ## Browser Testing
@@ -54,27 +54,27 @@ No errors were found when passing through the Jigsaw validator.
 
 Initial lighthouse results showed room for improvement in all facets, bar 'Best Practices'.
 
-![Initial Lighthouse results](/docs/lighthouse/lighthouse-initial.png)
+![Initial Lighthouse results](/docs/testing/lighthouse/lighthouse-initial.png)
 
 Adding labels to the input boxes, reducing transparency (to improve contrast ratio), and adjusting heading levels made a slight improvement to accessibility - 83 to 85, so this might be addressed later:
 
-![Lighthouse results after accessibility tweaks](/docs/lighthouse/lighthouse-labels-transparency-headings.png)
+![Lighthouse results after accessibility tweaks](/docs/testing/lighthouse/lighthouse-labels-transparency-headings.png)
 
 Adding meta tags to the html head increased the SEO from 82 to 100:
 
-![Lighthouse results after SEO tweaks](/docs/lighthouse/lighthouse-meta-tags.png)
+![Lighthouse results after SEO tweaks](/docs/testing/lighthouse/lighthouse-meta-tags.png)
 
 The remaining improvements are regarding Accessibility:
 
-![Lighthouse Accessibility issues](/docs/lighthouse/lighthouse-accessibility.png)
+![Lighthouse Accessibility issues](/docs/testing/lighthouse/lighthouse-accessibility.png)
 
 Adding aria-labels to the input fields improves accessibility from 87 to 97:
 
-![Lighthouse aria-label](/docs/lighthouse/lighthouse-aria-label.png)
+![Lighthouse aria-label](/docs/testing/lighthouse/lighthouse-aria-label.png)
 
 The deployed site shows further improvement in performance:
 
-![Lighthouse deployed](/docs/lighthouse/lighthouse-deployed.png)
+![Lighthouse deployed](/docs/testing/lighthouse/lighthouse-deployed.png)
 
 ## Debugging Code
 
@@ -88,6 +88,6 @@ I also struggled to pass through gameMode from the event listener, but eventuall
 
 ## Debugging
 
-Bugs were tracked using GitHub's Issues functionality - click [here](https://github.com/alanjameschapman/fruity-fun/issues?q=is%3Aissue+is%3Aclosed)
+Bugs were managed using GitHub's Issues functionality - click [here](https://github.com/alanjameschapman/fruity-fun/issues?q=is%3Aissue+is%3Aclosed) to see all issues. All bugs have been closed, and several issues labelled 'enhancements' have been raised for potential future work.
 
 Code blocks isolated and refactored using [python tutor](<https://pythontutor.com/>)
