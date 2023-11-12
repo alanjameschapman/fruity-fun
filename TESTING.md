@@ -24,7 +24,7 @@ The only user input was for the user guesses, and validated for various incorrec
 
 | Inputs Validated | Validation Test | Expected Outcome | Actual Outcome | Pass/Fail |
 | :--------------: | :-------------: | :--------------: | :------------: | :-------: |
-| Guesses | '', letter and invalid number (0 and negative) | Print error, repeat input prompt | ![home validation](/docs/testing/functions/home.png) | PASS |
+| Guesses | '', letter and invalid number (0 and negative) | Print error, repeat input prompt | ![bug3](/docs/testing/bugs/3fix_guess.png) | PASS |
 
 
 ## Browser Testing
