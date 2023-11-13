@@ -211,9 +211,17 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
  * Gets user guesses and fruit values from the DOM and compares the two arrays. If they match, execute incrementCorrect(), else execute incrementIncorrect(). 
  */
 function checkAnswers(gameMode) {
+
     const userGuess1 = parseInt(document.getElementById('guess1').value);
     const userGuess2 = parseInt(document.getElementById('guess2').value);
 
+    // Check if either guess is empty and update feedback area then return early if so
+    if (!userGuess1 || !userGuess2) {
+        const feedback = document.getElementsByClassName('feedback-area')[0];
+        feedback.innerHTML = "<h2 style='color:red;'>Please enter integers between 1-7 in each box. Blanks not allowed.</h2>";
+        return;
+    }
+    
     const fruit1 = parseInt(document.getElementById('fruit1').innerText);
     const fruit2 = parseInt(document.getElementById('fruit2').innerText);
 
