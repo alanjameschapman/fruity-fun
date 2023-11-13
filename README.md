@@ -6,7 +6,7 @@ Fruity Fun is a solo puzzle game, in which the user must deduce the value of eac
 
 The website has been designed for mobile-first, from iPhone 6 and onwards, and will be responsive for larger screen sizes. It is envisaged that the majority of users will be viewing from mobiles. Moreover, it is easier to design for small screens then enlarge for desktops vs the other way around.
 
-![Responsive Mockup](/docs/screenshots/am-i-responsive.png)
+![Responsive Mockup](/docs/screenshots/device_response.png)
 
 ### User Experience
 
