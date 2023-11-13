@@ -2,16 +2,16 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    let buttons = document.getElementsByTagName('button');
+    const buttons = document.getElementsByTagName('button');
 
     for (let button of buttons) {
         button.addEventListener('click', function () {
             if (this.getAttribute('data-type') === 'submit') {
-                let domMode = document.getElementsByClassName('answer-area')[0].firstChild;
-                let gameMode = domMode.getAttribute('data-type');
+                const domMode = document.getElementsByClassName('answer-area')[0].firstChild;
+                const gameMode = domMode.getAttribute('data-type');
                 checkAnswers(gameMode);
             } else {
-                let gameMode = this.getAttribute('data-type');
+                const gameMode = this.getAttribute('data-type');
                 runGame(gameMode);
             }
         });
@@ -26,31 +26,31 @@ document.addEventListener('DOMContentLoaded', function () {
  */
 function runGame(gameMode) {
 
-    let fruit1 = Math.floor(Math.random() * 7) + 1;
-    let fruit2 = Math.floor(Math.random() * 7) + 1;
+    const fruit1 = Math.floor(Math.random() * 7) + 1;
+    const fruit2 = Math.floor(Math.random() * 7) + 1;
 
-    let fruit1Multiple1 = Math.floor(Math.random() * 3) + 1;
-    let fruit2Multiple1 = Math.floor(Math.random() * 3) + 1;
-    let fruit1Multiple2 = Math.floor(Math.random() * 3) + 1;
-    let fruit2Multiple2 = Math.floor(Math.random() * 3) + 1;
+    const fruit1Multiple1 = Math.floor(Math.random() * 3) + 1;
+    const fruit2Multiple1 = Math.floor(Math.random() * 3) + 1;
+    const fruit1Multiple2 = Math.floor(Math.random() * 3) + 1;
+    const fruit2Multiple2 = Math.floor(Math.random() * 3) + 1;
 
     if (gameMode === 'normal') {
         // if answer2 is negative then regenerate random numbers until answer2 is positive
-        let answer2 = ((fruit1 * fruit1Multiple2) - (fruit2 * fruit2Multiple2));
+        const answer2 = ((fruit1 * fruit1Multiple2) - (fruit2 * fruit2Multiple2));
         if (Math.sign(answer2) === -1) {
             runGame(gameMode);
         } else displayNormalQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2);
     } else if (gameMode === 'fruity') {
-        let fruit3 = Math.floor(Math.random() * 7) + 1;
-        let fruit3Multiple1 = Math.floor(Math.random() * 3) + 1;
-        let fruit3Multiple2 = Math.floor(Math.random() * 3) + 1;
-        let fruit3Multiple3 = Math.floor(Math.random() * 3) + 1;
-        let fruit1Multiple3 = Math.floor(Math.random() * 3) + 1;
-        let fruit2Multiple3 = Math.floor(Math.random() * 3) + 1;
+        const fruit3 = Math.floor(Math.random() * 7) + 1;
+        const fruit3Multiple1 = Math.floor(Math.random() * 3) + 1;
+        const fruit3Multiple2 = Math.floor(Math.random() * 3) + 1;
+        const fruit3Multiple3 = Math.floor(Math.random() * 3) + 1;
+        const fruit1Multiple3 = Math.floor(Math.random() * 3) + 1;
+        const fruit2Multiple3 = Math.floor(Math.random() * 3) + 1;
 
         // if answer3 is negative then regenerate random numbers until answer3 is positive
-        let answer2 = (fruit1 * fruit1Multiple2) + (fruit2 * fruit2Multiple2) - (fruit3 * fruit3Multiple2);
-        let answer3 = (fruit1 * fruit1Multiple3) - (fruit2 * fruit2Multiple3) - (fruit3 * fruit3Multiple3);
+        const answer2 = (fruit1 * fruit1Multiple2) + (fruit2 * fruit2Multiple2) - (fruit3 * fruit3Multiple2);
+        const answer3 = (fruit1 * fruit1Multiple3) - (fruit2 * fruit2Multiple3) - (fruit3 * fruit3Multiple3);
         if (Math.sign(answer2) === -1 || Math.sign(answer3) === -1) {
             runGame(gameMode);
         } else {
@@ -67,8 +67,8 @@ function runGame(gameMode) {
  */
 function displayNormalQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2) {
 
-    let answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1;
-    let answer2 = fruit1 * fruit1Multiple2 - fruit2 * fruit2Multiple2;
+    const answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1;
+    const answer2 = fruit1 * fruit1Multiple2 - fruit2 * fruit2Multiple2;
 
     let fruitEmoji1, fruitEmoji2;
 
@@ -77,7 +77,7 @@ function displayNormalQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
         fruitEmoji2 = fruitEmoji();
     } while (fruitEmoji1 === fruitEmoji2);
 
-    let NormalQuestion = document.getElementsByClassName('question-area')[0];
+    const NormalQuestion = document.getElementsByClassName('question-area')[0];
     NormalQuestion.innerHTML =
 
         `<div>
@@ -104,7 +104,7 @@ function displayNormalQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
  * Updates answer-area html using template literals with structure for NORMAL gameMode.
  */
 function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
-    let NormalAnswer = document.getElementsByClassName('answer-area')[0];
+    const NormalAnswer = document.getElementsByClassName('answer-area')[0];
     NormalAnswer.innerHTML =
         `<div data-type='normal'>
             <span id='fruit1Feedback'>
@@ -125,9 +125,9 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
  */
 function displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, fruit3, fruit3Multiple1, fruit3Multiple2, fruit3Multiple3, fruit1Multiple3, fruit2Multiple3) {
 
-    let answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1 + fruit3 * fruit3Multiple1;
-    let answer2 = fruit1 * fruit1Multiple2 + fruit2 * fruit2Multiple2 - fruit3 * fruit3Multiple2;
-    let answer3 = fruit1 * fruit1Multiple3 - fruit2 * fruit2Multiple3 - fruit3 * fruit3Multiple3;
+    const answer1 = fruit1 * fruit1Multiple1 + fruit2 * fruit2Multiple1 + fruit3 * fruit3Multiple1;
+    const answer2 = fruit1 * fruit1Multiple2 + fruit2 * fruit2Multiple2 - fruit3 * fruit3Multiple2;
+    const answer3 = fruit1 * fruit1Multiple3 - fruit2 * fruit2Multiple3 - fruit3 * fruit3Multiple3;
 
     let fruitEmoji1, fruitEmoji2, fruitEmoji3;
 
@@ -137,7 +137,7 @@ function displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
         fruitEmoji3 = fruitEmoji();
     } while (fruitEmoji1 === fruitEmoji2 || fruitEmoji1 === fruitEmoji3 || fruitEmoji2 === fruitEmoji3);
 
-    let fruityQuestion = document.getElementsByClassName('question-area')[0];
+    const fruityQuestion = document.getElementsByClassName('question-area')[0];
     fruityQuestion.innerHTML =
 
         `<div>
@@ -178,7 +178,7 @@ function displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
  * Updates answer-area html using template literals with structure for FRUITY gameMode.
  */
 function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
-    let fruityAnswer = document.getElementsByClassName('answer-area')[0];
+    const fruityAnswer = document.getElementsByClassName('answer-area')[0];
     fruityAnswer.innerHTML =
         `<div data-type='fruity'>
             <span id='fruit1Feedback'>
@@ -206,18 +206,18 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
  * Gets user guesses and fruit values from the DOM and compares the two arrays. If they match, execute incrementCorrect(), else execute incrementIncorrect(). 
  */
 function checkAnswers(gameMode) {
-    let userGuess1 = parseInt(document.getElementById('guess1').value);
-    let userGuess2 = parseInt(document.getElementById('guess2').value);
+    const userGuess1 = parseInt(document.getElementById('guess1').value);
+    const userGuess2 = parseInt(document.getElementById('guess2').value);
 
-    let fruit1 = parseInt(document.getElementById('fruit1').innerText);
-    let fruit2 = parseInt(document.getElementById('fruit2').innerText);
+    const fruit1 = parseInt(document.getElementById('fruit1').innerText);
+    const fruit2 = parseInt(document.getElementById('fruit2').innerText);
 
     if (gameMode === 'normal') {
         userAnswers = [userGuess1, userGuess2];
         correctAnswers = [fruit1, fruit2];
     } else {
-        let userGuess3 = parseInt(document.getElementById('guess3').value);
-        let fruit3 = parseInt(document.getElementById('fruit3').innerText);
+        const userGuess3 = parseInt(document.getElementById('guess3').value);
+        const fruit3 = parseInt(document.getElementById('fruit3').innerText);
         userAnswers = [userGuess1, userGuess2, userGuess3];
         correctAnswers = [fruit1, fruit2, fruit3];
     }
@@ -277,10 +277,10 @@ function generateEmoji(emoji, count) {
 /** Gets user guesses, fruit emojis, and answers and provides feedback to user with template literals. */
 function userFeedback(gameMode) {
 
-    let userGuess1 = parseInt(document.getElementById('guess1').value);
-    let userGuess2 = parseInt(document.getElementById('guess2').value);
+    const userGuess1 = parseInt(document.getElementById('guess1').value);
+    const userGuess2 = parseInt(document.getElementById('guess2').value);
 
-    let feedback = document.getElementsByClassName('feedback-area')[0];
+    const feedback = document.getElementsByClassName('feedback-area')[0];
 
     // Validate userGuess1 and userGuess2
     if (isNaN(userGuess1) || isNaN(userGuess2)) {
@@ -288,14 +288,13 @@ function userFeedback(gameMode) {
         return;
     }
     
-    let fruitEmoji1 = document.getElementById('fruit1Feedback').innerText;
-    let fruitEmoji2 = document.getElementById('fruit2Feedback').innerText;
+    const fruitEmoji1 = document.getElementById('fruit1Feedback').innerText;
+    const fruitEmoji2 = document.getElementById('fruit2Feedback').innerText;
 
-    let fruit1 = document.getElementById('fruit1').innerText;
-    let fruit2 = document.getElementById('fruit2').innerText;
+    const fruit1 = document.getElementById('fruit1').innerText;
+    const fruit2 = document.getElementById('fruit2').innerText;
 
     if (gameMode === 'normal') {
-        let feedback = document.getElementsByClassName('feedback-area')[0];
         feedback.innerHTML =
             `<h2>Feedback:</h2>
             <div>
@@ -304,7 +303,7 @@ function userFeedback(gameMode) {
             <div>For ${fruitEmoji2}, you guessed ${userGuess2}. The anwer was ${fruit2}.
             </div>`;
     } else {
-        let userGuess3 = parseInt(document.getElementById('guess3').value);
+        const userGuess3 = parseInt(document.getElementById('guess3').value);
         
         // Validate userGuess3
         if (isNaN(userGuess3)) {
@@ -312,10 +311,9 @@ function userFeedback(gameMode) {
             return;
         }
 
-        let fruitEmoji3 = document.getElementById('fruit3Feedback').innerText;
-        let fruit3 = document.getElementById('fruit3').innerText;
+        const fruitEmoji3 = document.getElementById('fruit3Feedback').innerText;
+        const fruit3 = document.getElementById('fruit3').innerText;
 
-        let feedback = document.getElementsByClassName('feedback-area')[0];
         feedback.innerHTML =
             `<h2>Feedback:</h2>
             <div>
