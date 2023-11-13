@@ -5,14 +5,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.getElementsByTagName('button');
 
     for (let button of buttons) {
-        button.addEventListener('click', function () {
-            if (this.getAttribute('data-type') === 'submit') {
-                const domMode = document.getElementsByClassName('answer-area')[0].firstChild;
-                const gameMode = domMode.getAttribute('data-type');
+    button.addEventListener('click', function () {
+        if (this.getAttribute('data-type') === 'submit') {
+            const domMode = document.getElementsByClassName('answer-area')[0].firstChild;
+            const gameMode = domMode.getAttribute('data-type');
+            if (this.innerHTML === 'Submit') {
+                this.innerHTML = 'Next';
                 checkAnswers(gameMode);
-            } else {
-                const gameMode = this.getAttribute('data-type');
+            } else if (this.innerHTML === 'Next') {
+                this.innerHTML = 'Submit';
                 runGame(gameMode);
+            }
+        } else {
+            const gameMode = this.getAttribute('data-type');
+            runGame(gameMode);
             }
         });
     }
@@ -57,8 +63,7 @@ function runGame(gameMode) {
             displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1, fruit1Multiple2, fruit2Multiple2, fruit3, fruit3Multiple1, fruit3Multiple2, fruit3Multiple3, fruit1Multiple3, fruit2Multiple3);
         }
     } else {
-        alert(`unknown gameMode ${gameMode}`);
-        throw `unknown gameMode ${gameMode}. Abort mission!`;
+        throw new Error(`Unknown gameMode ${gameMode} encountered in runGame function.`);
     }
 }
 
