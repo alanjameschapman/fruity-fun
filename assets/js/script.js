@@ -115,12 +115,12 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
             <span id='fruit1Feedback'>
                 ${fruitEmoji1}
             </span>
-            <span></label><input aria-label='guess1' id='guess1' type='number' min="1" max="7" required/></span>
+            <span></label><input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required/></span>
         </div>
         <div>
             <span id='fruit2Feedback'>
                 ${fruitEmoji2}
-            </span><input aria-label='guess2' id='guess2' type='number' min="1" max="7" required/></span>
+            </span><input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required/></span>
         </div>`;
 
 }
@@ -189,19 +189,19 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
             <span id='fruit1Feedback'>
                 ${fruitEmoji1}
             </span>
-            <span><input aria-label='guess1' id='guess1' type='number' min="1" max="7" required/></span>
+            <span><input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required/></span>
         </div>
         <div>
             <span id='fruit2Feedback'>
                 ${fruitEmoji2}
             </span>
-            <span><input aria-label='guess2' id='guess2' type='number' min="1" max="7" required/></span>
+            <span><input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required/></span>
         </div>
         <div>
             <span id='fruit3Feedback'>
                 ${fruitEmoji3}
             </span>
-            <span><input aria-label='guess3' id='guess3' type='number' min="1" max="7" required/></span>
+            <span><input aria-label='guess3' id='guess3' type='number' min="1" max="7" inputmode='numeric' required/></span>
             </div>
         </div>`;
 

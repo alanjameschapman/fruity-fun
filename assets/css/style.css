@@ -52,7 +52,19 @@ button:hover {
 
 input {
     height: 40px;
-    width: 80px;
+    width: 50px;
+    font-size: 2rem;
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-color: red;
+    border: solid 0.1em;
+}
+
+select {
+    height: 40px;
+    width: 50px;
     font-size: 2rem;
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
@@ -72,11 +84,11 @@ input {
     font-size: 2rem;
 }
 
-.mode-area {
+/* .mode-area {
     display: flex;
     justify-content: space-between;
     text-align: center;
-}
+} */
 
 .pane {
     background-color: rgba(255, 255, 255, 0.75);
