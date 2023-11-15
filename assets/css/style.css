@@ -74,6 +74,16 @@ select {
     border: solid 0.1em;
 }
 
+/* .guesses {
+    margin: 5px;
+} */
+
+.answer-area {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-size: 2rem;
+}
 .question-area,
 #fruit1Feedback,
 #fruit2Feedback,

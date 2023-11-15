@@ -119,7 +119,7 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
         </div>
         <div>
             <span id='fruit2Feedback'>
-                ${fruitEmoji2}
+                ${fruitEmoji2}   
             </span><input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required/></span>
         </div>`;
 
@@ -145,7 +145,7 @@ function displayFruityQuestion(fruit1, fruit2, fruit1Multiple1, fruit2Multiple1,
     const fruityQuestion = document.getElementsByClassName('question-area')[0];
     fruityQuestion.innerHTML =
 
-        `<div>
+    `<div>
         <span id='fruit1' type='number' class='hidden'>${fruit1}</span>
         <span id='fruitEmoji1'>${generateEmoji(fruitEmoji1, fruit1Multiple1)} + </span>
         <span id='fruit2' type='number' class='hidden'>${fruit2}</span>
