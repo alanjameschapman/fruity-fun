@@ -67,7 +67,7 @@ Displays a tally of correct and incorrect answers.
 
 ## Testing and Debugging Code
 
-See [TESTING]() for details.
+See [TESTING](TESTING.md) for details.
 
 ## Deployment
 
@@ -82,7 +82,11 @@ The site was deployed to GitHub pages. The steps to deploy were as follows:
 
 Instead of an incremental tally a countdown could be used to add some jeopardy. Perhaps a countdown from 5 lives.
 
-Some adjustments could be made to the styling to improve layout. As an example, collapsible instructions would free up some space on smaller screens. Re-positioning the game mode buttons would help here too.
+Some adjustments could be made to the styling to improve layout. A customized page 404 would be nice to have too.
+
+These enhancements are documented using GitHub as open issues [here](https://github.com/alanjameschapman/fruity-fun/issues?q=is%3Aopen+is%3Aissue).
+
+![open issues](/docs/testing/bugs/issues_open.png)
 
 ## Credits
 
