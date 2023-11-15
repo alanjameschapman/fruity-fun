@@ -74,10 +74,6 @@ select {
     border: solid 0.1em;
 }
 
-/* .guesses {
-    margin: 5px;
-} */
-
 .answer-area {
     display: flex;
     justify-content: space-evenly;
@@ -91,14 +87,8 @@ select {
 .guess1,
 .guess2,
 .guess3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
-
-/* .mode-area {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-} */
 
 .pane {
     background-color: rgba(255, 255, 255, 0.75);
