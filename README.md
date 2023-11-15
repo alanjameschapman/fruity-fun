@@ -88,6 +88,8 @@ These enhancements are documented using GitHub as open issues [here](https://git
 
 ![open issues](/docs/testing/bugs/issues_open.png)
 
+NB. Site-themed page 404 added on 15/11/2023.
+
 ## Credits
 
 ### Peer Review
