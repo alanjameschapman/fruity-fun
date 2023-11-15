@@ -2,9 +2,7 @@
 
 ## JSHint Validation
 
-Coding errors were caught and fixed using the [CI recommended JS validator](https://jshint.com/). The deployed site returned no errors.
-
-![CI JS Hint](screenshot here)
+Coding errors were caught and fixed using the CI-recommended JS [validator](https://jshint.com/). The deployed site returned no errors.
 
 ## User Story Checks
 
@@ -29,6 +27,8 @@ The only user input was for the user guesses, and validated for various incorrec
 
 ## Browser Testing
 
+When tested across Chrome, Firefox and Edge, it was noted that the guess input box steppers display slightly smaller for Firefox, but arrows could still be clicked without trouble so this was not deemed unacceptable.
+
 | Browser | Image(s) |
 | ------- | :------: |
 | Chrome | ![chrome](docs/testing/browsers/chrome.png) |
@@ -36,19 +36,17 @@ The only user input was for the user guesses, and validated for various incorrec
 | Edge | ![edge](docs/testing/browsers/edge.png) |
 
 
-I continually checked my code with W3C validators, Lighthouse and jshint - see sections below. I also continuously tested my website on different screen sizes using DevTools on Chrome and different devices.
-
-IMPORTANT - Please note that when saving within the codeanywhere workspace, trailing slashes are created automatically and then appear for info during validation. I raised this issue with Code Institute so it is a known problem and I have to ignore these info messages during validation.
-
 ## HMTL validation
 
-No errors were returned when passing through the official W3C HTML validator. There was one warning regarding no headings in the Question Area section but JS generates a div instead.
+No errors were returned when passing through the W3C HTML validator.
 
-![HTML warning](/docs/screenshots/html-warning.png)
+![HTML validation](/docs/screenshots/W3C_HTML_validation.png)
 
 ## CSS validation
 
-No errors were found when passing through the Jigsaw validator.
+No errors were found when passing through the [W3C HTML validator](http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Falanjameschapman.github.io%2Ffruity-fun%2F&usermedium=all&vextwarning=&warning=1).
+
+![CSS validation](/docs/screenshots/W3C_CSS_validation.png)
 
 ## LIGHTHOUSE validation
 
@@ -76,7 +74,15 @@ The deployed site shows further improvement in performance:
 
 ![Lighthouse deployed](/docs/testing/lighthouse/lighthouse-deployed.png)
 
-## Debugging Code
+## Debugging
+
+Bugs were managed using GitHub's Issues functionality - click [here](https://github.com/alanjameschapman/fruity-fun/issues?q=is%3Aissue+is%3Aclosed) to see all issues. All issed labelled 'bugs' have been closed, along with various 'enhancements'. Some 'enhancements' have been raised for potential future work.
+
+![closed issues](/docs/testing/bugs/issues_closed.png)
+
+Code blocks isolated and refactored using [python tutor](<https://pythontutor.com/>)
+
+### Debugging notes
 
 The first main hurdle I faced was accessing the fruit1 and fruit2 variables. I needed to access these from the checkAnswers function but the fruit values were assigned within the scope of the displayEasyQuestion function. I believe the problem would have been easiest to solve by assigning these in the global scope but I understood that we were trying to avoid this practice for this project.
 
@@ -84,10 +90,4 @@ I spent a long time trying to pass these as parameters from one function to the 
 
 I initially chose to create all variables within each displayGame but realised that this would create repetition. Creating the variables in runGame will reduce this code bloating. These variables then need to be checked to ensure that the Answer value of each equation is positive. The next decision is therefore whether to check these values within runGame or each respective displayQuestion. The former was chosen to avoid the scenario where the execution jumps back-and-forth between runGame and displayQuestion. This seems more efficient.
 
-I also struggled to pass through gameMode from the event listener, but eventually solved this using the .firstchild method to get from the DOM
-
-## Debugging
-
-Bugs were managed using GitHub's Issues functionality - click [here](https://github.com/alanjameschapman/fruity-fun/issues?q=is%3Aissue+is%3Aclosed) to see all issues. All bugs have been closed, and several issues labelled 'enhancements' have been raised for potential future work.
-
-Code blocks isolated and refactored using [python tutor](<https://pythontutor.com/>)
+I also struggled to pass through gameMode from the event listener, but eventually solved this using the .firstchild method to get from the DOM.
