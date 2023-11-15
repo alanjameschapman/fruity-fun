@@ -1,88 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Fruity fun game using simultaneous equations or guessing"
-    />
-    <meta name="keywords" content="fruity fun, simultaneous equations, game" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>Fruity Fun</title>
 
-    <link rel="stylesheet" href="assets/css/style.css" />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fruity fun game using simultaneous equations or guessing">
+  <meta name="keywords" content="fruity fun, simultaneous equations, game">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Fruity Fun</title>
 
-    <!-- Google Font import -->
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,400&display=swap");
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1 class="heading">Fruity Fun</h1>
+  <link rel="stylesheet" href="assets/css/style.css">
 
-      <section class="instruction-area pane">
-        <details open>
-          <summary>Click here to toggle <strong style="color:red">Instructions</strong></summary>
-            <p>
-              Welcome to Fruity Fun, the game where you have to guess the value of
-              the fruit shown below. Values range from 1 to 7 units.
-            </p>
-            <p>
-              Simply enter your guesses into the boxes and click submit. Feedback
-              will be provided, and your score tally will update. To try the next
-              question, click 'Next'. If you need a challenge, select
-              Fruity - good luck!
-            </p>
-            <p>
-              Pssst... This maths game is actually GCSE-level simultaneous equations in disguise. For
-              tips on how to solve these, click
-              <a
-                href="https://www.bbc.co.uk/bitesize/guides/zqf3k2p/revision/1"
-                target="_blank"
-                rel="noopener"
-                aria-label="link opens in new tab"
-                >here.</a>
-            </p>
-        </details>
-      </section>
+  <!-- Google Font import -->
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,400&display=swap");
+  </style>
+</head>
 
-      <section class="pane">
-        <h2>Game Mode</h2>
-        <div>
-          <button data-type="normal">Normal</button>
-          <button data-type="fruity">Fruity!</button>
-        </div>
-      </section>
+<body>
+  <main>
+    <h1 class="heading">Fruity Fun</h1>
 
-      <section class="question-area pane">Question Area</section>
+    <section class="instruction-area pane">
+      <h2>Instructions</h2>
+      <details open>
+        <summary>Click here to toggle</summary>
+        <p>
+          Welcome to Fruity Fun, the game where you have to guess the value of
+          the fruit shown below. Values range from 1 to 7 units.
+        </p>
+        <p>
+          Simply enter your guesses into the boxes and click submit. Feedback
+          will be provided, and your score tally will update. To try the next
+          question, click 'Next'. If you need a challenge, select
+          Fruity - good luck!
+        </p>
+        <p>
+          Pssst... This maths game is actually GCSE-level simultaneous equations in disguise. For
+          tips on how to solve these, click
+          <a href="https://www.bbc.co.uk/bitesize/guides/zqf3k2p/revision/1" target="_blank" rel="noopener"
+            aria-label="link opens in new tab">here.</a>
+        </p>
+      </details>
+    </section>
 
-      <section class="pane">
-        <h2>Your guesses</h2>
+    <section class="pane">
+      <h2>Game Mode</h2>
+      <div>
+        <button data-type="normal">Normal</button>
+        <button data-type="fruity">Fruity!</button>
+      </div>
+    </section>
 
-        <div class="answer-area">Answers Area</div>
+    <section class="question-area pane">
+      <h2>Question Area</h2>
+    </section>
 
-        <div>
-          <button data-type="submit">Submit</button>
-        </div>
-      </section>
+    <section class="pane">
+      <h2>Your guesses</h2>
 
-      <section class="feedback-area pane">
-        <h2>Feedback</h2>
-      </section>
+      <div class="answer-area">Answers Area</div>
 
-      <section class="score-area pane">
-        <h2>Score Tally</h2>
-        <p class="scores">Correct Answers <span id="correct">0</span></p>
-        <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
-      </section>
-    </main>
-    <footer>
-      This site is intended solely for educational purposes. See readme for
-      credits.
-    </footer>
-    <script src="assets/js/script.js"></script>
-  </body>
+      <div>
+        <button data-type="submit">Submit</button>
+      </div>
+    </section>
+
+    <section class="feedback-area pane">
+      <h2>Feedback</h2>
+    </section>
+
+    <section class="score-area pane">
+      <h2>Score Tally</h2>
+      <p class="scores">Correct Answers <span id="correct">0</span></p>
+      <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
+    </section>
+  </main>
+  <footer>
+    This site is intended solely for educational purposes. See readme for
+    credits.
+  </footer>
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>
