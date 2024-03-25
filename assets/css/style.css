@@ -76,10 +76,17 @@ select {
 
 .answer-area {
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
     font-size: 2rem;
+    padding: 0 10px;
 }
+
+.answer-area div {
+    margin: 10px;
+}
+
 .question-area,
 #fruit1Feedback,
 #fruit2Feedback,
@@ -88,6 +95,7 @@ select {
 .guess2,
 .guess3 {
     font-size: 1.5rem;
+    margin: 10px 0;
 }
 
 .pane {
@@ -112,4 +120,31 @@ a {
 a:hover {
     color: green;
     font-weight: bold;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+.error-message {
+    color: red;
+}
+
+/* Override default styles added by the browser */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button.minus, button.plus {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: black;
 }
