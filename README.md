@@ -6,7 +6,7 @@ Fruity Fun is a solo puzzle game, in which the user must deduce the value of eac
 
 The website has been designed for mobile-first, from iPhone 6 and onwards, and will be responsive for larger screen sizes. It is envisaged that the majority of users will be viewing from mobiles. Moreover, it is easier to design for small screens then enlarge for desktops vs the other way around.
 
-![Responsive Mockup](/docs/screenshots/device_response.png)
+![device-response](docs/screenshots/device-response.png)
 
 ### User Experience
 
@@ -86,9 +86,25 @@ Some adjustments could be made to the styling to improve layout. A customized pa
 
 These enhancements are documented using GitHub as open issues [here](https://github.com/alanjameschapman/fruity-fun/issues?q=is%3Aopen+is%3Aissue).
 
-![open issues](/docs/testing/bugs/issues_open.png)
+![issues-open](docs/testing/bugs/issues-open.png)
 
 NB. Site-themed page 404 added on 15/11/2023.
+
+## Resubmission
+
+Assessment of the deployed site showed that there was an error in the console due to a missing block of code in the JS file at submission. This was fixed by adding the missing block of code back in:
+    
+```javascript
+/** Gets old incorrect score and increments by 1*/
+function incrementIncorrect() {
+    let oldScore = parseInt(document.getElementById("incorrect").innerText);
+    document.getElementById("incorrect").innerText = ++oldScore;
+}
+```
+
+This code increments the Incorrect Answers tally, in the same way that the Correct Answers tally is incremented. The site was then re-deployed and the error was resolved.
+
+During project resubmission, the input fields were updated to include a stepper for better User Experience. This also limited the possibility of invalid inputs.
 
 ## Credits
 

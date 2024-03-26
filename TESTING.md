@@ -9,11 +9,11 @@ Coding errors were caught and fixed using the CI-recommended JS [validator](http
 | As a user, I want to... | Requirement met | Evidence |
 | :---------------------- | :------------: | :-------: |
 | Play a solo, fun interactive game | YES | Interactive features: game mode, mouse hover feedback, guess feedback, score tally. |
-| Learn fundamental mathematical concepts | YES | ![story2](/docs/testing/user_stories/story2.png) |
-| Ability to change the level of difficulty, depending on ability | YES | ![story3](/docs/testing/user_stories/story3.png) |
-| Input my guesses, receiving feedback of any invalid inputs | YES | ![story4](/docs/testing/user_stories/story4.png) |
-| Get feedback when my mouse is hovering above valid inputs | YES | ![story5](/docs/testing/user_stories/story5.png) |
-| Keep tally of my correct and incorrect guesses | YES | ![story6](/docs/testing/user_stories/story6.png) |
+| Learn fundamental mathematical concepts | YES | ![story2](docs/testing/user_stories/story2.png) |
+| Ability to change the level of difficulty, depending on ability | YES | ![story3](docs/testing/user_stories/story3.png) |
+| Input my guesses, receiving feedback of any invalid inputs | YES | ![story4](docs/testing/user_stories/story4.png) |
+| Get feedback when my mouse is hovering above valid inputs | YES | ![story5](docs/testing/user_stories/story5.png) |
+| Keep tally of my correct and incorrect guesses | YES | ![story6](docs/testing/user_stories/story6.png) |
 
 
 ## Input Validation
@@ -22,7 +22,7 @@ The only user input was for the user guesses, and validated for various incorrec
 
 | Inputs Validated | Validation Test | Expected Outcome | Actual Outcome | Pass/Fail |
 | :--------------: | :-------------: | :--------------: | :------------: | :-------: |
-| Guesses | '', letter and invalid number (0 and negative) | Print error, repeat input prompt | ![bug3](/docs/testing/bugs/3fix_guess.png) | PASS |
+| Guesses | '', letter and invalid number (0 and negative) | Print error, repeat input prompt | ![bug3](docs/testing/bugs/3fix_guess.png) | PASS |
 
 
 ## Browser Testing
@@ -40,45 +40,41 @@ When tested across Chrome, Firefox and Edge, it was noted that the guess input b
 
 No errors were returned when passing through the W3C HTML validator.
 
-![HTML validation](/docs/screenshots/W3C_HTML_validation.png)
+![HTML validation](docs/screenshots/w3c-html-validation.png)
 
 ## CSS validation
 
 No errors were found when passing through the [W3C HTML validator](http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Falanjameschapman.github.io%2Ffruity-fun%2F&usermedium=all&vextwarning=&warning=1).
 
-![CSS validation](/docs/screenshots/W3C_CSS_validation.png)
+![CSS validation](docs/screenshots/w3c-css-validation.png)
 
 ## LIGHTHOUSE validation
 
 Initial lighthouse results showed room for improvement in all facets, bar 'Best Practices'.
 
-![Initial Lighthouse results](/docs/testing/lighthouse/lighthouse-initial.png)
+![Initial Lighthouse results](docs/testing/lighthouse/lighthouse-initial.png)
 
 Adding labels to the input boxes, reducing transparency (to improve contrast ratio), and adjusting heading levels made a slight improvement to accessibility - 83 to 85, so this might be addressed later:
 
-![Lighthouse results after accessibility tweaks](/docs/testing/lighthouse/lighthouse-labels-transparency-headings.png)
+![Lighthouse results after accessibility tweaks](docs/testing/lighthouse/lighthouse-labels-transparency-headings.png)
 
 Adding meta tags to the html head increased the SEO from 82 to 100:
 
-![Lighthouse results after SEO tweaks](/docs/testing/lighthouse/lighthouse-meta-tags.png)
-
-The remaining improvements are regarding Accessibility:
-
-![Lighthouse Accessibility issues](/docs/testing/lighthouse/lighthouse-accessibility.png)
+![Lighthouse results after SEO tweaks](docs/testing/lighthouse/lighthouse-meta-tags.png)
 
 Adding aria-labels to the input fields improves accessibility from 87 to 97:
 
-![Lighthouse aria-label](/docs/testing/lighthouse/lighthouse-aria-label.png)
+![Lighthouse aria-label](docs/testing/lighthouse/lighthouse-aria-label.png)
 
 The deployed site shows further improvement in performance:
 
-![Lighthouse deployed](/docs/testing/lighthouse/lighthouse-deployed.png)
+![Lighthouse deployed](docs/testing/lighthouse/lighthouse-deployed.png)
 
 ## Debugging
 
 Bugs were managed using GitHub's Issues functionality - click [here](https://github.com/alanjameschapman/fruity-fun/issues?q=is%3Aissue+is%3Aclosed) to see all issues. All issed labelled 'bugs' have been closed, along with various 'enhancements'. Some 'enhancements' have been raised for potential future work.
 
-![closed issues](/docs/testing/bugs/issues_closed.png)
+![closed issues](docs/testing/bugs/issues-closed.png)
 
 Code blocks isolated and refactored using [python tutor](<https://pythontutor.com/>)
 
