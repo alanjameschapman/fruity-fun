@@ -9,8 +9,10 @@
 /* Global styles */
 body {
     background: url(../images/fruity-background-compressed.jpg) no-repeat center center/cover;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: large;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 300;
+    font-style: normal;
+    font-size: medium;
     justify-content: center;
     text-align: center;
 }
@@ -18,7 +20,7 @@ body {
 .heading {
     color: white;
     background-color: rgba(0, 0, 0, 0.75);
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
     margin: 10px;
     text-transform: uppercase;
@@ -31,7 +33,7 @@ body {
 }
 
 button {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Ubuntu mono', monospace;
     font-size: large;
     width: 80px;
     height: 40px;
@@ -41,7 +43,7 @@ button {
     font-weight: bold;
     border-color: green;
     border: solid 0.2em;
-    margin: 0.25em;
+    margin: 0.4em;
 }
 
 button:hover {
@@ -82,19 +84,23 @@ select {
     padding: 0 10px;
 }
 
-.answer-area div {
-    margin: 5px;
+.question-area {
+    font-size: 1.4rem;
+    margin: 10px 0;
 }
 
-.question-area,
-#fruit1Feedback,
-#fruit2Feedback,
-#fruit3Feedback,
 .guess1,
 .guess2,
 .guess3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin: 10px 0;
+    background-color: none;
+}
+
+#guess1,
+#guess2,
+#guess3 {
+    background-color: transparent;
 }
 
 .pane {
@@ -110,14 +116,14 @@ select {
 .gamemode-area {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
-    /* font-size: 2rem; */
     padding: 0 10px;
 }
 
 footer {
     margin-left: 10px;
+    margin-bottom: 1rem;
 }
 
 a {
@@ -131,7 +137,8 @@ a:hover {
 }
 
 button:disabled {
-    opacity: 0.5;
+    border-color: grey;
+    color: grey;
 }
 
 .error-message {
@@ -153,10 +160,21 @@ input[type="number"]::-webkit-outer-spin-button {
     color: green;
 }
 
-.answer-area div {
+div.answer-area div {
     border: solid 1px;
-    border-color: gray;
+    border-color: green;
+    background-color: white;
     border-radius: 10px;
-    /* background-color: white; */
-    padding: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+
+button.selected {
+    background-color: green;
+    border-color: green;
+    color: white;
+}
+
+div.answer-area div span {
+    font-family: Verdana, sans-serif;
 }

@@ -414,7 +414,7 @@ function userFeedback(gameMode) {
   const fruit2 = document.getElementById("fruit2").innerText;
 
   if (gameMode === "normal") {
-    feedback.innerHTML = `<h2>Feedback:</h2>
+    feedback.innerHTML = `<h2>Feedback</h2>
             <div>
             For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
             </div>
@@ -433,7 +433,7 @@ function userFeedback(gameMode) {
     const fruitEmoji3 = document.getElementById("fruit3Feedback").innerText;
     const fruit3 = document.getElementById("fruit3").innerText;
 
-    feedback.innerHTML = `<h2>Feedback:</h2>
+    feedback.innerHTML = `<h2>Feedback</h2>
             <div>
             For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
             </div>
@@ -462,10 +462,10 @@ function addEventListeners() {
     ) {
       submitButton.disabled = true;
       feedbackArea.innerHTML =
-        '<h2>Feedback:</h2><div class="error-message">Please enter your guesses in all fields before submitting.</div>';
+        '<h2>Feedback</h2><div class="error-message">Please guess all fruit, then submit.</div>';
     } else {
       submitButton.disabled = false;
-      feedbackArea.innerHTML = "<h2>Feedback:</h2>";
+      feedbackArea.innerHTML = "<h2>Feedback</h2>";
     }
   }
 
@@ -511,3 +511,17 @@ function setupInputButtons() {
 
 // Set up event listeners when the DOM content is loaded
 document.addEventListener("DOMContentLoaded", setupInputButtons);
+
+// Difficulty buttons
+// Get all difficulty buttons and add event listeners to them.
+let buttons = document.querySelectorAll('.difficulty-button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove 'selected' class from all buttons
+        buttons.forEach(btn => btn.classList.remove('selected'));
+
+        // Add 'selected' class to the clicked button
+        this.classList.add('selected');
+    });
+});

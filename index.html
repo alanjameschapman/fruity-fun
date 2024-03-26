@@ -12,10 +12,11 @@
 
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Google Font import -->
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,400&display=swap");
-  </style>
+  <!-- Google Font Share Tech Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -46,10 +47,10 @@
     </section>
 
     <section class="gamemode-area pane">
-      <h2>Game Mode</h2>
+      <h2>Difficulty</h2>
       <div>
-        <button data-type="normal">Normal</button>
-        <button data-type="fruity">Fruity!</button>
+        <button class="difficulty-button selected" data-type="normal">Normal</button>
+        <button class="difficulty-button" data-type="fruity">Fruity</button>
       </div>
     </section>
 
@@ -62,9 +63,9 @@
 
       <div class="answer-area">Answers Area</div>
 
-      <div>
-        <button data-type="submit">Submit</button>
-      </div>
+      <!-- <div> -->
+      <button data-type="submit">Submit</button>
+      <!-- </div> -->
     </section>
 
     <section class="feedback-area pane">
@@ -78,8 +79,8 @@
     </section>
   </main>
   <footer>
-    This site is intended solely for educational purposes. See readme for
-    credits.
+    <p>This site is for educational purposes.</p>
+    <p>See <a href="https://github.com/alanjameschapman/fruity-fun" target="_blank">readme</a> for credits.</p>
   </footer>
   <script src="assets/js/script.js"></script>
   <script src="https://kit.fontawesome.com/92cf72c289.js" crossorigin="anonymous"></script>
