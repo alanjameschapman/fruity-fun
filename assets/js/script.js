@@ -416,9 +416,9 @@ function userFeedback(gameMode) {
   if (gameMode === "normal") {
     feedback.innerHTML = `<h2>Feedback</h2>
             <div>
-            For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
+            For ${fruitEmoji1}, you guessed ${userGuess1}. The answer was ${fruit1}.
             </div>
-            <div>For ${fruitEmoji2}, you guessed ${userGuess2}. The anwer was ${fruit2}.
+            <div>For ${fruitEmoji2}, you guessed ${userGuess2}. The answer was ${fruit2}.
             </div>`;
   } else {
     const userGuess3 = parseInt(document.getElementById("guess3").value);
@@ -435,13 +435,13 @@ function userFeedback(gameMode) {
 
     feedback.innerHTML = `<h2>Feedback</h2>
             <div>
-            For ${fruitEmoji1}, you guessed ${userGuess1}. The anwer was ${fruit1}.
+            For ${fruitEmoji1}, you guessed ${userGuess1}. The answer was ${fruit1}.
             </div>
             <div> 
-             For ${fruitEmoji2}, you guessed ${userGuess2}. The anwer was ${fruit2}.
+             For ${fruitEmoji2}, you guessed ${userGuess2}. The answer was ${fruit2}.
             </div>
             <div>
-            For ${fruitEmoji3}, you guessed ${userGuess3}. The anwer was ${fruit3}.
+            For ${fruitEmoji3}, you guessed ${userGuess3}. The answer was ${fruit3}.
             </div>`;
   }
 }

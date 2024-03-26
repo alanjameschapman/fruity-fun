@@ -56,7 +56,7 @@ input {
     height: 40px;
     width: 20px;
     font-size: 2rem;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Ubuntu mono', monospace;
     text-align: center;
     justify-content: center;
     border-radius: 10px;
@@ -94,7 +94,7 @@ select {
 .guess3 {
     font-size: 2rem;
     margin: 10px 0;
-    background-color: none;
+    background-color: transparent;
 }
 
 #guess1,
