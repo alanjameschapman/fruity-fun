@@ -178,3 +178,7 @@ button.selected {
 div.answer-area div span {
     font-family: Verdana, sans-serif;
 }
+
+h2 {
+    margin-bottom: 5px;
+}
