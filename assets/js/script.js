@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 // Wait for DOM to load then listen to button events.
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -94,8 +95,9 @@ function runGame(gameMode) {
     );
   }
 
-  // After the input boxes have been added, add the event listeners
+  // After the input boxes have been added, add the event listeners and set up the input buttons
   addEventListeners();
+  setupInputButtons();
 }
 
 /**
@@ -161,9 +163,9 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
                 ${fruitEmoji1}
             </span>
             <span>
-                <button class="minus">-</button>
-                <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required/>
-                <button class="plus">+</button>
+                <i class="fa-regular fa-square-minus"></i>
+                <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+                <i class="fa-regular fa-square-plus"></i>
             </span>
         </div>
         <div>
@@ -171,9 +173,9 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
                 ${fruitEmoji2}   
             </span>
             <span>
-                <button class="minus">-</button>
-                <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required/>
-                <button class="plus">+</button>    
+                <i class="fa-regular fa-square-minus"></i>
+                <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+                <i class="fa-regular fa-square-plus"></i>
             </span>
         </div>`;
 }
@@ -276,9 +278,9 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
                 ${fruitEmoji1}
             </span>
             <span>
-                <button class="minus">-</button>
-                <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required/>
-                <button class="plus">+</button>
+                <i class="fa-regular fa-square-minus"></i>
+                <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+                <i class="fa-regular fa-square-plus"></i>
             </span>
         </div>
         <div>
@@ -286,9 +288,9 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
                 ${fruitEmoji2}
             </span>
             <span>
-                <button class="minus">-</button>
-                <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required/>
-                <button class="plus">+</button>
+                <i class="fa-regular fa-square-minus"></i>
+                <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+                <i class="fa-regular fa-square-plus"></i>
             </span>
         </div>
         <div>
@@ -296,9 +298,9 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
                 ${fruitEmoji3}
             </span>
             <span>
-                <button class="minus">-</button>
-                <input aria-label='guess3' id='guess3' type='number' min="1" max="7" inputmode='numeric' required/>
-                <button class="plus">+</button>
+                <i class="fa-regular fa-square-minus"></i>
+                <input aria-label='guess3' id='guess3' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+                <i class="fa-regular fa-square-plus"></i>
             </span>
             </div>
         </div>`;
@@ -477,26 +479,35 @@ function addEventListeners() {
   checkInput();
 }
 
-// Minus and plus buttons for input fields
-let minusButtons = document.querySelectorAll(".minus");
-let plusButtons = document.querySelectorAll(".plus");
+// Function to change the user's guess in the input box
+function changeNumber(e) {
+  let input = e.target.parentElement.querySelector("input");
+  let inputValue = input.value ? parseInt(input.value, 10) : 0;
+  if (e.target.classList.contains("fa-square-minus") && inputValue > 1) {
+    input.value = inputValue - 1;
+  } else if (e.target.classList.contains("fa-square-plus") && inputValue < 7) {
+    input.value = inputValue + 1;
+  }
+  // Dispatch the input event
+  let event = new Event("input", { bubbles: true });
+  input.dispatchEvent(event);
+}
 
-minusButtons.forEach((button, index) => {
-    button.addEventListener("click", function () {
-      let input = document.getElementById(`guess${index + 1}`);
-      let inputValue = parseInt(input.value, 10);
-      if (inputValue > 1) {
-        input.value = inputValue - 1;
-      }
-    });
+// Function to set up event listeners for the input buttons
+function setupInputButtons() {
+  let minusButtons = document.querySelectorAll(".fa-square-minus");
+  let plusButtons = document.querySelectorAll(".fa-square-plus");
+
+  minusButtons.forEach((button) => {
+    button.removeEventListener("click", changeNumber);
+    button.addEventListener("click", changeNumber);
   });
-  
-  plusButtons.forEach((button, index) => {
-    button.addEventListener("click", function () {
-      let input = document.getElementById(`guess${index + 1}`);
-      let inputValue = parseInt(input.value, 10);
-      if (inputValue < 10) {
-        input.value = inputValue + 1;
-      }
-    });
+
+  plusButtons.forEach((button) => {
+    button.removeEventListener("click", changeNumber);
+    button.addEventListener("click", changeNumber);
   });
+}
+
+// Set up event listeners when the DOM content is loaded
+document.addEventListener("DOMContentLoaded", setupInputButtons);

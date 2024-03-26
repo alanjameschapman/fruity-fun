@@ -41,7 +41,7 @@ button {
     font-weight: bold;
     border-color: green;
     border: solid 0.2em;
-    margin: 0.5em 1em;
+    margin: 0.25em;
 }
 
 button:hover {
@@ -52,14 +52,13 @@ button:hover {
 
 input {
     height: 40px;
-    width: 50px;
+    width: 20px;
     font-size: 2rem;
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     justify-content: center;
     border-radius: 10px;
     border-color: red;
-    border: solid 0.1em;
 }
 
 select {
@@ -84,7 +83,7 @@ select {
 }
 
 .answer-area div {
-    margin: 10px;
+    margin: 5px;
 }
 
 .question-area,
@@ -106,6 +105,15 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.gamemode-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /* font-size: 2rem; */
+    padding: 0 10px;
 }
 
 footer {
@@ -137,14 +145,18 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-button.minus, button.plus {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    color: black;
+.fa-square-minus {
+    color: red;
+}
+
+.fa-square-plus {
+    color: green;
+}
+
+.answer-area div {
+    border: solid 1px;
+    border-color: gray;
+    border-radius: 10px;
+    /* background-color: white; */
+    padding: 10px;
 }
