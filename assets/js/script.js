@@ -158,7 +158,7 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
   const NormalAnswer = document.getElementsByClassName("answer-area")[0];
   NormalAnswer.innerHTML = `<div data-type='normal'>
             <span id='fruit1Feedback'>
-              ${fruitEmoji1} = 
+              ${fruitEmoji1} =
             </span>
             <span>
               <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
@@ -168,7 +168,7 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
         </div>
         <div>
             <span id='fruit2Feedback'>
-                ${fruitEmoji2} = 
+                ${fruitEmoji2} =
             </span>
             <span>
               <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
@@ -273,7 +273,7 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
   const fruityAnswer = document.getElementsByClassName("answer-area")[0];
   fruityAnswer.innerHTML = `<div data-type='fruity'>
             <span id='fruit1Feedback'>
-                ${fruitEmoji1}
+                ${fruitEmoji1} =
             </span>
             <span>
               <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
@@ -283,7 +283,7 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
         </div>
         <div>
             <span id='fruit2Feedback'>
-                ${fruitEmoji2}
+                ${fruitEmoji2} =
             </span>
             <span>
               <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
@@ -293,7 +293,7 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
         </div>
         <div>
             <span id='fruit3Feedback'>
-                ${fruitEmoji3}
+                ${fruitEmoji3} =
             </span>
             <span>
               <input aria-label='guess3' id='guess3' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
@@ -418,9 +418,10 @@ function userFeedback(gameMode) {
   if (gameMode === "normal") {
     feedback.innerHTML = `<h2>Feedback</h2>
             <div>
-            For ${fruitEmoji1}, you guessed ${userGuess1}. The answer was ${fruit1}.
+            You guessed ${fruitEmoji1} ${userGuess1}. The answer was ${fruit1}.
             </div>
-            <div>For ${fruitEmoji2}, you guessed ${userGuess2}. The answer was ${fruit2}.
+            <div>
+            You guessed ${fruitEmoji2} ${userGuess2}. The answer was ${fruit2}.
             </div>`;
   } else {
     const userGuess3 = parseInt(document.getElementById("guess3").value);
@@ -436,13 +437,13 @@ function userFeedback(gameMode) {
 
     feedback.innerHTML = `<h2>Feedback</h2>
             <div>
-            For ${fruitEmoji1}, you guessed ${userGuess1}. The answer was ${fruit1}.
+              You guessed ${fruitEmoji1} ${userGuess1}. The answer was ${fruit1}.
             </div>
             <div> 
-             For ${fruitEmoji2}, you guessed ${userGuess2}. The answer was ${fruit2}.
+              You guessed ${fruitEmoji2}  ${userGuess2}. The answer was ${fruit2}.
             </div>
             <div>
-            For ${fruitEmoji3}, you guessed ${userGuess3}. The answer was ${fruit3}.
+              You guessed ${fruitEmoji3}  ${userGuess3}. The answer was ${fruit3}.
             </div>`;
   }
 }
