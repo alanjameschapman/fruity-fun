@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * Creates random integers between 1 and 7 and assigns them to fruits; 2, 3, and 4 created for normal and Fruity respectively.
  * Creates random integers between 1 and 3 and assigns them to fruit multipliers. 2, 3, and 4 created for normal and Fruity respectively.
  * If answer of equation is negative, numbers will regenerate until it's positive. Once numbers are suitable, displayQuestion functions will execute.
+ * After the input boxes have been added, add the event listeners and set up the input buttons
  */
 function runGame(gameMode) {
   const fruit1 = Math.floor(Math.random() * 7) + 1;
@@ -41,7 +42,6 @@ function runGame(gameMode) {
   const fruit2Multiple2 = Math.floor(Math.random() * 3) + 1;
 
   if (gameMode === "normal") {
-    // if answer2 is negative then regenerate random numbers until answer2 is positive
     const answer2 = fruit1 * fruit1Multiple2 - fruit2 * fruit2Multiple2;
     if (Math.sign(answer2) === -1) {
       runGame(gameMode);
@@ -62,7 +62,6 @@ function runGame(gameMode) {
     const fruit1Multiple3 = Math.floor(Math.random() * 3) + 1;
     const fruit2Multiple3 = Math.floor(Math.random() * 3) + 1;
 
-    // if answer3 is negative then regenerate random numbers until answer3 is positive
     const answer2 =
       fruit1 * fruit1Multiple2 +
       fruit2 * fruit2Multiple2 -
@@ -95,7 +94,6 @@ function runGame(gameMode) {
     );
   }
 
-  // After the input boxes have been added, add the event listeners and set up the input buttons
   addEventListeners();
   setupInputButtons();
 }
@@ -160,22 +158,22 @@ function displayNormalAnswer(fruitEmoji1, fruitEmoji2) {
   const NormalAnswer = document.getElementsByClassName("answer-area")[0];
   NormalAnswer.innerHTML = `<div data-type='normal'>
             <span id='fruit1Feedback'>
-                ${fruitEmoji1}
+              ${fruitEmoji1} = 
             </span>
             <span>
-                <i class="fa-regular fa-square-minus"></i>
-                <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
-                <i class="fa-regular fa-square-plus"></i>
+              <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+              <i class="fa-regular fa-square-minus"></i>
+              <i class="fa-regular fa-square-plus"></i>
             </span>
         </div>
         <div>
             <span id='fruit2Feedback'>
-                ${fruitEmoji2}   
+                ${fruitEmoji2} = 
             </span>
             <span>
-                <i class="fa-regular fa-square-minus"></i>
-                <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
-                <i class="fa-regular fa-square-plus"></i>
+              <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+              <i class="fa-regular fa-square-minus"></i>
+              <i class="fa-regular fa-square-plus"></i>
             </span>
         </div>`;
 }
@@ -278,9 +276,9 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
                 ${fruitEmoji1}
             </span>
             <span>
-                <i class="fa-regular fa-square-minus"></i>
-                <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
-                <i class="fa-regular fa-square-plus"></i>
+              <input aria-label='guess1' id='guess1' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+              <i class="fa-regular fa-square-minus"></i>
+              <i class="fa-regular fa-square-plus"></i>
             </span>
         </div>
         <div>
@@ -288,9 +286,9 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
                 ${fruitEmoji2}
             </span>
             <span>
-                <i class="fa-regular fa-square-minus"></i>
-                <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
-                <i class="fa-regular fa-square-plus"></i>
+              <input aria-label='guess2' id='guess2' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+              <i class="fa-regular fa-square-minus"></i>
+              <i class="fa-regular fa-square-plus"></i>
             </span>
         </div>
         <div>
@@ -298,9 +296,9 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
                 ${fruitEmoji3}
             </span>
             <span>
-                <i class="fa-regular fa-square-minus"></i>
-                <input aria-label='guess3' id='guess3' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
-                <i class="fa-regular fa-square-plus"></i>
+              <input aria-label='guess3' id='guess3' type='number' min="1" max="7" inputmode='numeric' required placeholder="?"/>
+              <i class="fa-regular fa-square-minus"></i>
+              <i class="fa-regular fa-square-plus"></i>
             </span>
             </div>
         </div>`;
@@ -308,12 +306,13 @@ function displayFruityAnswer(fruitEmoji1, fruitEmoji2, fruitEmoji3) {
 
 /**
  * Gets user guesses and fruit values from the DOM and compares the two arrays. If they match, execute incrementCorrect(), else execute incrementIncorrect().
+ * Checks if either guess is empty and update feedback area then return early if so.
+ * Loop through the arrays and compare each element. Exit the loop if a mismatch is found
  */
 function checkAnswers(gameMode) {
   const userGuess1 = parseInt(document.getElementById("guess1").value);
   const userGuess2 = parseInt(document.getElementById("guess2").value);
 
-  // Check if either guess is empty and update feedback area then return early if so
   if (!userGuess1 || !userGuess2) {
     const feedback = document.getElementsByClassName("feedback-area")[0];
     feedback.innerHTML =
@@ -323,6 +322,9 @@ function checkAnswers(gameMode) {
 
   const fruit1 = parseInt(document.getElementById("fruit1").innerText);
   const fruit2 = parseInt(document.getElementById("fruit2").innerText);
+
+  let userAnswers;
+  let correctAnswers;
 
   if (gameMode === "normal") {
     userAnswers = [userGuess1, userGuess2];
@@ -339,11 +341,10 @@ function checkAnswers(gameMode) {
   if (userAnswers.length !== correctAnswers.length) {
     isCorrect = false;
   } else {
-    // Loop through the arrays and compare each element
     for (let i = 0; i < userAnswers.length; i++) {
       if (userAnswers[i] !== correctAnswers[i]) {
         isCorrect = false;
-        break; // Exit the loop if a mismatch is found
+        break;
       }
     }
   }
@@ -371,7 +372,7 @@ function incrementIncorrect() {
 
 /** Creates an array of fruit and returns one at random for use in displayAnswer functions. */
 function fruitEmoji() {
-  emojiArray = [
+  let emojiArray = [
     "&#127815",
     "&#127820",
     "&#127821",
@@ -380,7 +381,7 @@ function fruitEmoji() {
     "&#127827",
     "&#129373",
   ];
-  randomChoice = Math.floor(Math.random() * emojiArray.length);
+  let randomChoice = Math.floor(Math.random() * emojiArray.length);
   return emojiArray[randomChoice];
 }
 
@@ -393,14 +394,15 @@ function generateEmoji(emoji, count) {
   return emojiString;
 }
 
-/** Gets user guesses, fruit emojis, and answers and provides feedback to user with template literals. */
+/** Gets user guesses, fruit emojis, and answers and provides feedback to user with template literals.
+ *  Validate userGuess1, userGuess2 and userGuess3
+ */
 function userFeedback(gameMode) {
   const userGuess1 = parseInt(document.getElementById("guess1").value);
   const userGuess2 = parseInt(document.getElementById("guess2").value);
 
   const feedback = document.getElementsByClassName("feedback-area")[0];
 
-  // Validate userGuess1 and userGuess2
   if (isNaN(userGuess1) || isNaN(userGuess2)) {
     feedback.innerHTML =
       "<h2 style='color:red;'>Please enter integers between 1-7 in each box. Blanks not allowed.</h2>";
@@ -423,7 +425,6 @@ function userFeedback(gameMode) {
   } else {
     const userGuess3 = parseInt(document.getElementById("guess3").value);
 
-    // Validate userGuess3
     if (isNaN(userGuess3)) {
       feedback.innerHTML =
         "<h2 style='color:red;'>Please enter integers between 1-7 in each box. Blanks not allowed.</h2>";
@@ -446,6 +447,7 @@ function userFeedback(gameMode) {
   }
 }
 
+// Function to add event listeners to the input boxes and initialize the submit button state.
 function addEventListeners() {
   let guess1 = document.getElementById("guess1");
   let guess2 = document.getElementById("guess2");
@@ -475,11 +477,10 @@ function addEventListeners() {
     guess3.addEventListener("input", checkInput);
   }
 
-  // Initialize the submit button state
   checkInput();
 }
 
-// Function to change the user's guess in the input box
+// Function to change the user's guess in the input box then dispatch the input event
 function changeNumber(e) {
   let input = e.target.parentElement.querySelector("input");
   let inputValue = input.value ? parseInt(input.value, 10) : 0;
@@ -488,7 +489,6 @@ function changeNumber(e) {
   } else if (e.target.classList.contains("fa-square-plus") && inputValue < 7) {
     input.value = inputValue + 1;
   }
-  // Dispatch the input event
   let event = new Event("input", { bubbles: true });
   input.dispatchEvent(event);
 }
@@ -512,16 +512,16 @@ function setupInputButtons() {
 // Set up event listeners when the DOM content is loaded
 document.addEventListener("DOMContentLoaded", setupInputButtons);
 
-// Difficulty buttons
-// Get all difficulty buttons and add event listeners to them.
-let buttons = document.querySelectorAll('.difficulty-button');
+/** Get all difficulty buttons and add event listeners to them.
+ * Remove 'selected' class from all buttons
+ * Add 'selected' class to the clicked button
+ */
+let buttons = document.querySelectorAll(".difficulty-button");
 
-buttons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Remove 'selected' class from all buttons
-        buttons.forEach(btn => btn.classList.remove('selected'));
+buttons.forEach((button) => {
+  button.addEventListener("click", function () {
+    buttons.forEach((btn) => btn.classList.remove("selected"));
 
-        // Add 'selected' class to the clicked button
-        this.classList.add('selected');
-    });
+    this.classList.add("selected");
+  });
 });

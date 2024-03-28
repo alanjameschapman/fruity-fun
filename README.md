@@ -104,7 +104,7 @@ function incrementIncorrect() {
 
 This code increments the Incorrect Answers tally, in the same way that the Correct Answers tally is incremented. The site was then re-deployed and the error was resolved.
 
-During project resubmission, the input fields were updated to include a stepper for better User Experience. This also limited the possibility of invalid inputs.
+During project resubmission, the input fields were updated to include a stepper for better User Experience. This effectively eliminates the possibility of invalid inputs.
 
 ## Credits
 

@@ -153,10 +153,20 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .fa-square-minus {
+    color: gray;
+    margin-right: -6px;
+}
+
+.fa-square-minus:hover {
     color: red;
 }
 
-.fa-square-plus {
+.fa-square-plus{
+    color: gray;
+    margin-left: -6px;
+}
+
+.fa-square-plus:hover {
     color: green;
 }
 

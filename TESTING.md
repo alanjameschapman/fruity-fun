@@ -2,7 +2,11 @@
 
 ## JSHint Validation
 
-Coding errors were caught and fixed using the CI-recommended JS [validator](https://jshint.com/). The deployed site returned no errors.
+JavaScript errors were caught and fixed using the CI-recommended JS [validator](https://jshint.com/). The deployed site returned no errors:
+
+![JSHint validation](docs/screenshots/jshint-validation.png)
+
+The single warning shown can be ignored because the function only uses the button variable from the loop, and each function gets its own button because let is used to declare the loop variable.
 
 ## User Story Checks
 
@@ -24,6 +28,13 @@ The only user input was for the user guesses, and validated for various incorrec
 | :--------------: | :-------------: | :--------------: | :------------: | :-------: |
 | Guesses | '', letter and invalid number (0 and negative) | Print error, repeat input prompt | ![bug3](docs/testing/bugs/3fix_guess.png) | PASS |
 
+### Resubmission
+
+During resubmission, the user guess input was improved with stepper buttons. This was tested for invalid inputs as shown below:
+
+| Inputs Validated | Invalid Input | Valid Input | Pass/Fail |
+| :-: | :-----------: | :---------: | :-------: |
+| Input my guesses, receiving feedback of any invalid inputs | ![story4](docs/testing/user_stories/invalid-input.png) | ![story4](docs/testing/user_stories/valid-input.png) | PASS |
 
 ## Browser Testing
 
