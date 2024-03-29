@@ -38,7 +38,7 @@ button {
     width: 80px;
     height: 40px;
     border-radius: 10px;
-    color: red;
+    color: green;
     background-color: white;
     font-weight: bold;
     border-color: green;
@@ -50,6 +50,18 @@ button:hover {
     color: white;
     background-color: green;
     border: none;
+}
+
+button.selected {
+    background-color: green;
+    border-color: green;
+    color: white;
+}
+
+button:disabled, button:disabled:hover {
+    background-color: white;
+    border-color: gray;
+    color: gray;
 }
 
 input {
@@ -67,7 +79,7 @@ select {
     height: 40px;
     width: 50px;
     font-size: 2rem;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Ubuntu mono', monospace;
     text-align: center;
     justify-content: center;
     border-radius: 10px;
@@ -136,11 +148,6 @@ a:hover {
     font-weight: bold;
 }
 
-button:disabled {
-    border-color: grey;
-    color: grey;
-}
-
 .error-message {
     color: red;
 }
@@ -153,20 +160,16 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .fa-square-minus {
-    color: gray;
+    color: black;
     margin-right: -6px;
 }
 
-.fa-square-minus:hover {
-    color: red;
-}
-
 .fa-square-plus{
-    color: gray;
+    color: black;
     margin-left: -6px;
 }
 
-.fa-square-plus:hover {
+.fa-square-minus:hover, .fa-square-plus:hover {
     color: green;
 }
 
@@ -177,12 +180,6 @@ div.answer-area div {
     border-radius: 10px;
     padding: 5px;
     margin: 5px;
-}
-
-button.selected {
-    background-color: green;
-    border-color: green;
-    color: white;
 }
 
 div.answer-area div span {
